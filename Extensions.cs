@@ -3,7 +3,7 @@ using Kingmaker.Blueprints;
 using System;
 using System.Linq;
 
-namespace WOTR_PATH_OF_BLING
+namespace WOTR_BOAT_BOAT_BOAT
 {
     static class Extensions
     {

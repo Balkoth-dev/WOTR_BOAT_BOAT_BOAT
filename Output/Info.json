@@ -1,13 +1,13 @@
 {
-    "AssemblyName": "WOTR_PATH_OF_BLING.dll",
-    "Author": "Balkoth",
-    "DisplayName": "PATH OF BLING",
-    "EntryMethod": "WOTR_PATH_OF_BLING.Main.Load",
-    "GameVersion": "1.2.0",
-    "HomePage": "https://github.com/Balkoth-dev/WOTR_PATH_OF_BLING",
-    "Id": "WOTR_PATH_OF_BLING",
-    "ManagerVersion": "0.23.0",
-    "Repository": "",
-    "Requirements": [],
-    "Version": "1.0.0"
+  "AssemblyName": "WOTR_MORE_INTERESTING_TAILWINDS.dll",
+  "Author": "Balkoth",
+  "DisplayName": "MORE INTERESTING TAILWINDS",
+  "EntryMethod": "MORE INTERESTING TAILWINDS.Main.Load",
+  "GameVersion": "1.4.0",
+  "HomePage": "https://github.com/Balkoth-dev/WOTR_PATH_OF_BLING",
+  "Id": "MORE INTERESTING TAILWINDS",
+  "ManagerVersion": "0.23.0",
+  "Repository": "",
+  "Requirements": [],
+  "Version": "1.0.0"
 }

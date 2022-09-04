@@ -2,22 +2,15 @@
 using System;
 using System.IO;
 using UnityModManagerNet;
-using WOTR_PATH_OF_BLING.Utilities;
+using WOTR_BOAT_BOAT_BOAT.Utilities;
 using ModKit;
 
-namespace WOTR_PATH_OF_BLING
+namespace WOTR_BOAT_BOAT_BOAT
 {
     public class Main
     {
         public class Settings : UnityModManager.ModSettings
         {
-            public bool PatchGoldDragonSpellDamage = true;
-            public bool PatchGoldenDragonBreathAbility = true;
-            public bool UpgradeGoldenDragonBreathDebuff = true;
-            public bool PatchGoldenDragonFormIcon = true;
-            public bool PatchGoldenDragonFormAbility = true;
-            public bool AddGoldDragonSpellbook = true; 
-
             public override void Save(UnityModManager.ModEntry modEntry)
             {
                 Save(this, modEntry);
@@ -52,61 +45,17 @@ namespace WOTR_PATH_OF_BLING
             UI.AutoWidth(); UI.Div(0, 15);
             using (UI.VerticalScope())
             {
-                UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".yellow().bold().size(20));
-                UI.Toggle("Gold Dragon Spell Damage Fix".bold(), ref settings.PatchGoldDragonSpellDamage);
-                if(settings.PatchGoldDragonSpellDamage)
-                {
-                    UI.Label("Spell Damage Dice Progression is changed to work as written. In addition, if an enemy has any energy vulnerability they'll be vulnerable to the attack at mythic rank 10.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Spell Damage Dice Progression is unchanged.".red().size(10));
-                }
-                UI.Toggle("Gold Dragon Breath Upgrade".bold(), ref settings.PatchGoldenDragonBreathAbility);
-                if (settings.PatchGoldenDragonBreathAbility)
-                {
-                    UI.Label("The golden dragon breath is now a move action instead of a standard and will scale damage off of your full mythic rank. Cooldown is negated when transformed into your gold dragon form.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Gold Dragon Breath is unchanged.".red().size(10));
-                }
-                UI.Toggle("Upgrade Gold Dragon Breath Debuff".bold(), ref settings.UpgradeGoldenDragonBreathDebuff);
-                if (settings.UpgradeGoldenDragonBreathDebuff)
-                {
-                    UI.Label("The golden dragon breath's debuff will now stack.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Gold Dragon Breath's debuff is unchanged.".red().size(10));
-                }
-                UI.Toggle("Gold Dragon Form Icon Update".bold(), ref settings.PatchGoldenDragonFormIcon);
-                if (settings.PatchGoldenDragonFormIcon)
-                {
-                    UI.Label("Gives a unique icon to the Gold Dragon Form.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Gold Dragon Form Icon is unchanged.".red().size(10));
-                }
-                UI.Toggle("Gold Dragon Form Ability Update".bold(), ref settings.PatchGoldenDragonFormAbility);
-                if (settings.PatchGoldenDragonFormAbility)
-                {
-                    UI.Label("Gives the Gold Dragon Form a mythic bonus of plus two to all mental stats.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Gold Dragon Form Icon is unchanged.".red().size(10));
-                }
-                UI.Toggle("Gold Dragon Spellbook Added".bold(), ref settings.AddGoldDragonSpellbook);
-                if (settings.AddGoldDragonSpellbook)
-                {
-                    UI.Label("Gives a Gold Dragon a divine spontaneous spellbook.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Spellbook is not added.".red().size(10));
-                }
+                UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".grey().bold().size(20));
+                /*   UI.Toggle("Gold Dragon Spell Damage Fix".bold(), ref settings.PatchGoldDragonSpellDamage);
+                   if(settings.PatchGoldDragonSpellDamage)
+                   {
+                       UI.Label("Spell Damage Dice Progression is changed to work as written. In addition, if an enemy has any energy vulnerability they'll be vulnerable to the attack at mythic rank 10.".green().size(10));
+                   }
+                   else
+                   {
+                       UI.Label("Spell Damage Dice Progression is unchanged.".red().size(10));
+                   }*/
+
             }
         }
 

@@ -7,7 +7,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WOTR_PATH_OF_BLING.Utilities
+namespace WOTR_BOAT_BOAT_BOAT.Utilities
 {
     class ObjectDeepCopier
     {

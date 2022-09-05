@@ -8,6 +8,8 @@ using Kingmaker;
 using Kingmaker.PubSubSystem;
 using WOTR_BOAT_BOAT_BOAT.MechanicsChanges;
 using Kingmaker.Dungeon.Blueprints;
+using Kingmaker.Blueprints.Root;
+using System.Linq;
 
 namespace WOTR_BOAT_BOAT_BOAT
 {
@@ -60,7 +62,7 @@ namespace WOTR_BOAT_BOAT_BOAT
                    {
                        UI.Label("Spell Damage Dice Progression is unchanged.".red().size(10));
                    }*/
-                
+
             }
         }
 
@@ -74,12 +76,34 @@ namespace WOTR_BOAT_BOAT_BOAT
             modInfo.Logger.Log(msg);
 #endif
         }
-        public static void AddBoonOnAreaLoad(BlueprintDungeonBoon dungeonBoon)
+        public static void AddBoonOnAreaLoad(BlueprintDungeonBoon dungeonBoon, bool inject)
         {
 #if DEBUG
-
-            InjectStuffOnLoad.Injections.Add(() => { Game.Instance.Player.DungeonState.SelectBoon(dungeonBoon); });
+            if (inject)
+            {
+                InjectStuffOnLoad.Injections.Add(() => { SetBoon(dungeonBoon); });
+                //DungeonRoot
+            }
 #endif
+        }
+        public static void SetBoon(BlueprintDungeonBoon dungeonBoon)
+        {
+            Log(dungeonBoon.Name);
+            if (dungeonBoon == null)
+            {
+                Log(dungeonBoon.Name + " is null");
+            }
+            Game.Instance.Player.DungeonState.m_IsBoonApplied = false;
+            Game.Instance.Player.DungeonState.StageIndex = 999;
+            Game.Instance.Player.DungeonState.Statistic.StageIndexBest = 998;
+            Game.Instance.Player.DungeonState.SelectBoon(dungeonBoon);
+            if (Game.Instance.Player.DungeonState.Boon != dungeonBoon)
+            {
+                Log("Failed to set boon to " + dungeonBoon.Name);
+            }
+            Log("Boon set to " + dungeonBoon.Name + ".");
+            Game.Instance.Player.DungeonState.ApplyBoon(Game.Instance.Player.MainCharacter);
+
         }
 
         public bool GetSettingValue(string b)

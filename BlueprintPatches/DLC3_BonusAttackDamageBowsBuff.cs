@@ -51,7 +51,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             dLC3_BonusAttackDamageBowsBuff.m_Description = Helpers.CreateString(dLC3_BonusAttackDamageBowsBuff + ".Description", newDescription);
             dungeonBoon_BonusDmgBows.m_Description = Helpers.CreateString(dungeonBoon_BonusDmgBows + ".Description", newDescription);
 
-            Main.AddBoonOnAreaLoad(dungeonBoon_BonusDmgBows);
+            Main.AddBoonOnAreaLoad(dungeonBoon_BonusDmgBows, false);
 
         }
     }

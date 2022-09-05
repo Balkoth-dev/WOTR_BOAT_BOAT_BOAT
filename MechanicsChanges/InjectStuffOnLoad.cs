@@ -9,10 +9,10 @@ namespace WOTR_BOAT_BOAT_BOAT.MechanicsChanges
 {
     class InjectStuffOnLoad : IAreaActivationHandler
     {
-
         public static List<Action> Injections = new();
         public void OnAreaActivated()
         {
+            Main.Log("Hello, I am here.");
             foreach (var injection in Injections)
             {
                 injection();

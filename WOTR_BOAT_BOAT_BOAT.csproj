@@ -118,6 +118,8 @@
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageAcidBuff.cs" />
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageColdBuff.cs" />
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageElectricityBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_ElementalDamageFireBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_ElementalDamageSonicBuff.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="BlueprintPatches\DLC3_BarbarianBloodragerHPBuffFeature.cs" />

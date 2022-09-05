@@ -79,7 +79,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 };
                 });
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_BarbarianHP);
+                Main.AddBoonOnAreaLoad(dungeonBoon_BarbarianHP, false);
 
             }
         }

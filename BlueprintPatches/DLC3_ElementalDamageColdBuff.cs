@@ -78,7 +78,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dLC3_ElementalDamageColdBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageColdBuff + ".Description", newDescription);
                 dungeonBoon_Cold.m_Description = Helpers.CreateString(dungeonBoon_Cold + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Cold);
+                Main.AddBoonOnAreaLoad(dungeonBoon_Cold, false);
             }
         }
     }

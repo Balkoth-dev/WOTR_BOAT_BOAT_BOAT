@@ -59,7 +59,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dLC3_ElementalDamageAcidBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageAcidBuff + ".Description", newDescription);
                 dungeonBoon_Acid.m_Description = Helpers.CreateString(dungeonBoon_Acid + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Acid);
+                Main.AddBoonOnAreaLoad(dungeonBoon_Acid, false);
 
             }
         }

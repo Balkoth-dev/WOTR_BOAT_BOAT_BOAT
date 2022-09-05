@@ -80,7 +80,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dLC3_DwarvenBuff.m_Description = Helpers.CreateString(dLC3_DwarvenBuff + ".Description", newDescription);
                 dungeonBoon_Dwarven.m_Description = Helpers.CreateString(dungeonBoon_Dwarven + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven);
+                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, false);
 
             }
         }

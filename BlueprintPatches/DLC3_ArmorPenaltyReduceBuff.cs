@@ -43,7 +43,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 dLC3_ArmorPenaltyReduceBuff.m_Description = Helpers.CreateString(dLC3_ArmorPenaltyReduceBuff + ".Description", newDescription);
                 dungeonBoon_ArcaneArmor.m_Description = Helpers.CreateString(dLC3_ArmorPenaltyReduceBuff + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_ArcaneArmor);
+                Main.AddBoonOnAreaLoad(dungeonBoon_ArcaneArmor,false);
 
             }
         }

@@ -4,6 +4,10 @@ using System.IO;
 using UnityModManagerNet;
 using WOTR_BOAT_BOAT_BOAT.Utilities;
 using ModKit;
+using Kingmaker;
+using Kingmaker.PubSubSystem;
+using WOTR_BOAT_BOAT_BOAT.MechanicsChanges;
+using Kingmaker.Dungeon.Blueprints;
 
 namespace WOTR_BOAT_BOAT_BOAT
 {
@@ -37,6 +41,7 @@ namespace WOTR_BOAT_BOAT_BOAT
             modEntry.OnGUI = OnGUI;
             modEntry.OnSaveGUI = OnSaveGUI;
             harmony.PatchAll();
+            EventBus.Subscribe(new InjectStuffOnLoad());
             return true;
         }
 
@@ -55,7 +60,7 @@ namespace WOTR_BOAT_BOAT_BOAT
                    {
                        UI.Label("Spell Damage Dice Progression is unchanged.".red().size(10));
                    }*/
-
+                
             }
         }
 
@@ -67,6 +72,13 @@ namespace WOTR_BOAT_BOAT_BOAT
         {
 #if DEBUG
             modInfo.Logger.Log(msg);
+#endif
+        }
+        public static void AddBoonOnAreaLoad(BlueprintDungeonBoon dungeonBoon)
+        {
+#if DEBUG
+
+            InjectStuffOnLoad.Injections.Add(() => { Game.Instance.Player.DungeonState.SelectBoon(dungeonBoon); });
 #endif
         }
 

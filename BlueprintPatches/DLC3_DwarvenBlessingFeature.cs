@@ -10,6 +10,10 @@ using Kingmaker.Designers.Mechanics.Facts;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.ElementsSystem;
 using Kingmaker.EntitySystem.Stats;
+using Kingmaker.Enums;
+using Kingmaker.Enums.Damage;
+using Kingmaker.RuleSystem;
+using Kingmaker.RuleSystem.Rules.Damage;
 using Kingmaker.UnitLogic.Buffs.Blueprints;
 using Kingmaker.UnitLogic.Buffs.Components;
 using Kingmaker.UnitLogic.FactLogic;
@@ -51,22 +55,42 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dungeonBoon_Dwarven = BlueprintTool.Get<BlueprintDungeonBoon>("16e92f99e49143b3afde282bb8b94a7a");
                 var dwarvenWaraxe = BlueprintTool.Get<BlueprintWeaponType>("a6925f5f897801449a648d865637e5a0").ToReference<BlueprintWeaponTypeReference>();
 
-                var newDescription = "Each dwarf in your party gains a +1 bonus to Constitution ability score and +3 to their base move speed for each dwarf in your party, including themselves. \nIn addition, whenever a dwarf hits with a Dwarven War Axe, they heal 1d4 per Constitution modifier.";
+                var newDescription = "Each dwarf in your party gains a +1 bonus to Constitution ability score and +3 to their base move speed for each dwarf in your party, including themselves. \nIn addition, whenever a dwarf hits with a Dwarven War Axe, they deal 1d4 additional damage, this damage is multipled on a critical hit.";
 
-                var cure = Helpers.Create<ContextActionHealTarget>(c => {
-                    c.Value = Helpers.Create<ContextDiceValue>(d =>
+
+                var warAxeDamage = Helpers.Create<ContextActionDealDamage>(c =>
+                {
+                    c.DamageType = new DamageTypeDescription
                     {
-                        d.DiceType = Kingmaker.RuleSystem.DiceType.D4;
-                        d.DiceCountValue = Helpers.Create<ContextValue>(e => { e.Value = 1; e.ValueType = ContextValueType.Simple; e.ValueRank = Kingmaker.Enums.AbilityRankType.Default; e.Property = UnitProperty.StatBonusConstitution; });
-                        d.BonusValue = new ContextValue();
-                    });
+                        Type = DamageType.Physical,
+                        Energy = DamageEnergyType.Unholy
+                    };
+                    c.Duration = new ContextDurationValue()
+                    {
+                        m_IsExtendable = true,
+                        DiceCountValue = new ContextValue(),
+                        BonusValue = new ContextValue()
+                    };
+                    c.Value = new ContextDiceValue
+                    {
+                        DiceType = DiceType.D4,
+                        DiceCountValue = new ContextValue()
+                        {
+                            Value = 1
+                        },
+                        BonusValue = new ContextValue
+                        {
+                            ValueType = ContextValueType.Rank,
+                            ValueRank = AbilityRankType.DamageBonus
+                        }
+                    };
                 });
 
                 dLC3_DwarvenBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c =>
                 {
                     c.OnlyHit = true;
                     c.Action = new ActionList();
-                    c.Action.Actions = new GameAction[] { cure };
+                    c.Action.Actions = new GameAction[] { warAxeDamage };
                     c.m_WeaponType = dwarvenWaraxe;
                 });
 
@@ -80,7 +104,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dLC3_DwarvenBuff.m_Description = Helpers.CreateString(dLC3_DwarvenBuff + ".Description", newDescription);
                 dungeonBoon_Dwarven.m_Description = Helpers.CreateString(dungeonBoon_Dwarven + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, false);
+                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, true);
 
             }
         }

@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlueprintCore\Utils\BlueprintTool.cs" />
+    <Compile Include="BlueprintPatches\DLC3_BludgeoningWeaponsLevelBuff.cs" />
     <Compile Include="BlueprintPatches\DLC3_BonusAttackDamageBowsBuff.cs" />
     <Compile Include="BlueprintPatches\DLC3_DwarvenBlessingFeature.cs" />
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageAcidBuff.cs" />
@@ -120,6 +121,11 @@
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageElectricityBuff.cs" />
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageFireBuff.cs" />
     <Compile Include="BlueprintPatches\DLC3_ElementalDamageSonicBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_ElvenBlessingBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_ExoticWeaponBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_RoguesRangersGainDRBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_SlasingWeaponsLevelBuff.cs" />
+    <Compile Include="BlueprintPatches\DLC3_UnramedAttacksBuff.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="Main.cs" />
     <Compile Include="BlueprintPatches\DLC3_BarbarianBloodragerHPBuffFeature.cs" />

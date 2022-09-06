@@ -10,6 +10,7 @@ using WOTR_BOAT_BOAT_BOAT.MechanicsChanges;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Blueprints.Root;
 using System.Linq;
+using BlueprintCore.Utils;
 
 namespace WOTR_BOAT_BOAT_BOAT
 {
@@ -81,29 +82,21 @@ namespace WOTR_BOAT_BOAT_BOAT
 #if DEBUG
             if (inject)
             {
-                InjectStuffOnLoad.Injections.Add(() => { SetBoon(dungeonBoon); });
-                //DungeonRoot
+                var dungeonRoot = BlueprintTool.Get<BlueprintDungeonRoot>("096f36d4e55b49129ddd2211b2c50513");
+                dungeonRoot.m_Boons = new BlueprintDungeonBoonReference[0];
+                for(int i = 0; i < 3; i++)
+                {
+                    var dungeonBoonRef = new BlueprintDungeonBoonReference() { deserializedGuid = dungeonBoon.AssetGuid };
+                    dungeonRoot.m_Boons = dungeonRoot.m_Boons.AppendToArray(dungeonBoonRef);
+                }
+                InjectStuffOnLoad.Injections.Add(() => { SetBoon(); });
             }
 #endif
         }
-        public static void SetBoon(BlueprintDungeonBoon dungeonBoon)
+        public static void SetBoon()
         {
-            Log(dungeonBoon.Name);
-            if (dungeonBoon == null)
-            {
-                Log(dungeonBoon.Name + " is null");
-            }
-            Game.Instance.Player.DungeonState.m_IsBoonApplied = false;
             Game.Instance.Player.DungeonState.StageIndex = 999;
             Game.Instance.Player.DungeonState.Statistic.StageIndexBest = 998;
-            Game.Instance.Player.DungeonState.SelectBoon(dungeonBoon);
-            if (Game.Instance.Player.DungeonState.Boon != dungeonBoon)
-            {
-                Log("Failed to set boon to " + dungeonBoon.Name);
-            }
-            Log("Boon set to " + dungeonBoon.Name + ".");
-            Game.Instance.Player.DungeonState.ApplyBoon(Game.Instance.Player.MainCharacter);
-
         }
 
         public bool GetSettingValue(string b)

@@ -15,7 +15,7 @@
 * Impervious Tailwind - All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.
 In addition, every time they are hit with an attack they heal equal to their level in this class.
 * Tailwind of the Hardy - All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 2 every time they gain a level in that class.
-* Tailwind of Ironclad Magic - Arcane spell failure chance for wearing armor is reduced by 20% for you and your party members. When a spell is cast it does bonus damage equal to 3% for each 1% of their arcane spell failure, before reductions, even if it's not an arcane spell.
+* Tailwind of Ironclad Magic - Arcane spell failure chance for wearing armor is reduced by 20% for you and your party members. When a spell is cast it does bonus damage equal to 3% for each 1% of their arcane spell failure, before reductions, even if it's not an arcane spell.  (Only the description is changed to match the actual effect of the ability)
 * Crashing Tailwind - All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with bludgeoning weapons.
 * Tailwind of the Bearded - Each dwarf in your party gains a +1 bonus to Constitution ability score, including themselves. 
 In addition, whenever a dwarf hits with a Dwarven War Axe or Dwarven Urgrosh, they deal an additional 1d6 additional damage, this damage is multipled on a critical hit.

@@ -45,7 +45,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_DwarvenBlessingFeature_Patch();
 
-                Main.Log("DLC3_ArmorPenaltyReduceBuff Patched");
             }
 
             private static void DLC3_DwarvenBlessingFeature_Patch()
@@ -108,6 +107,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, false);
 
+                var p = dungeonBoon_Dwarven;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

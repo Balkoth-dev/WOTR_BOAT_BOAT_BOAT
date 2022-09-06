@@ -37,7 +37,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ElementalDamageColdBuff_Patch();
 
-                Main.Log("DLC3_ElementalDamageColdBuff Patched");
             }
 
             private static void DLC3_ElementalDamageColdBuff_Patch()
@@ -79,6 +78,9 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dungeonBoon_Cold.m_Description = Helpers.CreateString(dungeonBoon_Cold + ".Description", newDescription);
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Cold, false);
+
+                var p = dungeonBoon_Cold;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

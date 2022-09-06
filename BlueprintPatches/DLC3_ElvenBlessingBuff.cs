@@ -41,7 +41,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ElvenBlessingBuff_Patch();
 
-                Main.Log("DLC3_ElvenBlessingBuff Patched");
             }
 
             private static void DLC3_ElvenBlessingBuff_Patch()
@@ -65,6 +64,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Elven, false);
 
+                var p = dungeonBoon_Elven;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

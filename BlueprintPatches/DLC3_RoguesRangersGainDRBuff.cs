@@ -37,7 +37,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 DLC3_RoguesRangersGainDRBuff_Patch();
 
-                Main.Log("DLC3_RoguesRangersGainDRBuff Patched");
             }
 
             private static void DLC3_RoguesRangersGainDRBuff_Patch()
@@ -71,6 +70,9 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 dungeonBoon_Rogues.m_Description = Helpers.CreateString(dungeonBoon_Rogues + ".Description", newDescription);
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Rogues, false);
+
+                var p = dungeonBoon_Rogues;
+                Main.Log(p.Name + " - " + p.Description);
 
             }
         }

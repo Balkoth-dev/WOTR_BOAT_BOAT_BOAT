@@ -11,14 +11,34 @@
 ```
 ## Changes
 ```
-
+* Impervious Tailwind - All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.
+In addition, every time they are hit with an attack they heal equal to their level in this class.
+* Tailwind of Ironclad Magic - All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 2 every time they gain a level in that class.
+* Tailwind of Ironclad Magic - Arcane spell failure chance for wearing armor is reduced by 20% for you and your party members. When a spell is cast it does bonus damage equal to 3% for each 1% of their arcane spell failure, before reductions, even if it's not an arcane spell.
+* Crashing Tailwind - All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with bludgeoning weapons.
+* Tailwind of the Bearded - Each dwarf in your party gains a +1 bonus to Constitution ability score, including themselves. 
+In addition, whenever a dwarf hits with a Dwarven War Axe or Dwarven Urgrosh, they deal an additional 1d6 additional damage, this damage is multipled on a critical hit.
+* Caustic Tailwind - All acid damage dealt by your party members is increased by 25%. 
+In addition all party members gain the ability to throw Acid Bombs like an alchemist an unlimited amount of times.
+* Frigid Tailwind - All cold damage dealt by your party members is increased by 25%. 
+In addition all enemies within 10 feet of any party member are affected by difficult terrain and have a -1 to reflex saves, this penalty increases by 1 every 5 character levels.
+* Sparkling Tailwind - All electricity damage dealt by your party members is increased by 25%.
+In addition you can cast Call Lighting as a swift action that scales with your character level.
+* Searing Tailwind - All fire damage dealt by your party members is increased by 25%. 
+In addition all party members gain the ability to cast Fire Bolt as if they had the Fire Domain an unlimited amount of times.
+* Howling Tailwind - All sonic damage dealt by your party members is increased by 50%.
+* Tailwind of Elven Nimbleness - All elves in your party gain a bonus on initiative rolls equal to their character level.
+In addition, all Elven Curved Blades have their critical hit range increased by one.
+* Slashing Tailwind - All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with slashing weapons.
+* Tailwind of Fists - Unarmed strikes made by your party members gain a +1 bonus on attack rolls and deal one additional die of the same type as the primary one (1d6 becomes 2d6, 2d6 becomes 3d6).
+In addition all unarmed attacks deal damage using the damage die of the next highest category (For example d10 becomes a 2d8).
 ```
 ## Change Log
 ```
 ```
 
 ## Special Thanks
-Thanks to @Vek17#1898, @bubbles#0538, @kadyn#6364, @WittleWolfie#8477, and everyone else on the [Discord](https://discord.com/invite/wotr). Without their assistance this project would not have been possible.
+Thanks to @Vek17#1898, @bubbles#0538, @WittleWolfie#8477, and everyone else on the [Discord](https://discord.com/invite/wotr). Without their assistance this project would not have been possible.
 
 
 ## License

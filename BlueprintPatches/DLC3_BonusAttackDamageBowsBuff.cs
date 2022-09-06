@@ -29,7 +29,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
             DLC3_ArmorPenaltyReduceBuff_Patch();
 
-            Main.Log("DLC3_ArmorPenaltyReduceBuff Patched");
         }
 
         private static void DLC3_ArmorPenaltyReduceBuff_Patch()
@@ -53,6 +52,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
             Main.AddBoonOnAreaLoad(dungeonBoon_BonusDmgBows, false);
 
+            var p = dungeonBoon_BonusDmgBows;
+            Main.Log(p.Name + " - " + p.Description);
         }
     }
 }

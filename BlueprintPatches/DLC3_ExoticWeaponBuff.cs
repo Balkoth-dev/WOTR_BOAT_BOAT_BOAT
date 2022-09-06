@@ -42,7 +42,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ExoticWeaponBuff_Patch();
 
-                Main.Log("DLC3_ExoticWeaponBuff Patched");
             }
 
             private static void DLC3_ExoticWeaponBuff_Patch()
@@ -91,9 +90,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Exotic, false);
                 var dungeonBoon_UnarmedStrikes = BlueprintTool.Get<BlueprintDungeonBoon>("5c7a5a0220e84b3fa5d78d427d10bf6b");
-
-                Main.AddBoonOnAreaLoad(dungeonBoon_UnarmedStrikes, true);
-
             }
         }
     }

@@ -35,7 +35,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ElementalDamageElectricityBuff_Patch();
 
-                Main.Log("DLC3_ElementalDamageElectricityBuff Patched");
             }
 
             private static void DLC3_ElementalDamageElectricityBuff_Patch()
@@ -72,6 +71,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Electric, false);
 
+                var p = dungeonBoon_Electric;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

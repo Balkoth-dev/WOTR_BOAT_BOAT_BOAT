@@ -32,7 +32,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ElementalDamageAcidBuff_Patch();
 
-                Main.Log("DLC3_ElementalDamageAcidBuff Patched");
             }
 
             private static void DLC3_ElementalDamageAcidBuff_Patch()
@@ -61,6 +60,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Acid, false);
 
+                var p = dungeonBoon_Acid;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

@@ -35,7 +35,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 DLC3_BarbarianBloodragerHPBuffFeature_Patch();
 
-                Main.Log("DLC3_BarbarianBloodragerHPBuffFeaturef Patched");
             }
 
             private static void DLC3_BarbarianBloodragerHPBuffFeature_Patch()
@@ -81,6 +80,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_BarbarianHP, false);
 
+                var p = dungeonBoon_BarbarianHP;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

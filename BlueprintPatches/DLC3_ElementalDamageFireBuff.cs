@@ -32,7 +32,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ElementalDamageFireBuff_Patch();
 
-                Main.Log("DLC3_ElementalDamageFireBuff Patched");
             }
 
             private static void DLC3_ElementalDamageFireBuff_Patch()
@@ -61,6 +60,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Fire, false);
 
+                var p = dungeonBoon_Fire;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

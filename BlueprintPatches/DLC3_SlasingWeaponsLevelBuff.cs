@@ -42,7 +42,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_SlasingWeaponsLevelBuff_Patch();
 
-                Main.Log("DLC3_SlasingWeaponsLevelBuff Patched");
             }
 
             private static void DLC3_SlasingWeaponsLevelBuff_Patch()
@@ -60,6 +59,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Slashing, false);
 
+                var p = dungeonBoon_Slashing;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

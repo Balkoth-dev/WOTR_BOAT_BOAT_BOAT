@@ -33,7 +33,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_ElementalDamageSonicBuff_Patch();
 
-                Main.Log("DLC3_ElementalDamageSonicBuff Patched");
             }
 
             private static void DLC3_ElementalDamageSonicBuff_Patch()
@@ -49,6 +48,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Sonic, false);
 
+                var p = dungeonBoon_Sonic;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

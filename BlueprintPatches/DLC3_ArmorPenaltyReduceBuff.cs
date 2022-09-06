@@ -30,7 +30,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 DLC3_ArmorPenaltyReduceBuff_Patch();
 
-                Main.Log("DLC3_ArmorPenaltyReduceBuff Patched");
             }
 
             private static void DLC3_ArmorPenaltyReduceBuff_Patch()
@@ -45,6 +44,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_ArcaneArmor,false);
 
+                var p = dungeonBoon_ArcaneArmor;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

@@ -42,7 +42,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_BludgeoningWeaponsLevelBuff_Patch();
 
-                Main.Log("DLC3_BludgeoningWeaponsLevelBuff Patched");
             }
 
             private static void DLC3_BludgeoningWeaponsLevelBuff_Patch()
@@ -60,6 +59,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_Bludgeoning, false);
 
+                var p = dungeonBoon_Bludgeoning;
+                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

@@ -43,7 +43,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 DLC3_UnramedAttacksBuff_Patch();
 
-                Main.Log("DLC3_UnramedAttacksBuff Patched");
             }
 
             private static void DLC3_UnramedAttacksBuff_Patch()
@@ -60,6 +59,9 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dungeonBoon_UnarmedStrikes.m_Description = Helpers.CreateString(dungeonBoon_UnarmedStrikes + ".Description", newDescription);
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_UnarmedStrikes, false);
+
+                var p = dungeonBoon_UnarmedStrikes;
+                Main.Log(p.Name + " - " + p.Description);
 
             }
         }

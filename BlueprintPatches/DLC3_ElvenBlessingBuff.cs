@@ -49,7 +49,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dLC3_ElvenBlessingBuff = BlueprintTool.Get<BlueprintBuff>("8b845d7f13c4402fb70f50e90bd407ad");
                 var dungeonBoon_Elven = BlueprintTool.Get<BlueprintDungeonBoon>("dbb242c6be10406799fd659feb40d266");
 
-                var newDescription = "All elves in your party gain a bonus on initiative rolls equal to their character level.\nIn addition, all Elven Curved Blades have a critical hit range of 17-20.";
+                var newDescription = "All elves in your party gain a bonus on initiative rolls equal to their character level.\nIn addition, all Elven Curved Blades have their critical hit range increased by one.";
 
                 var x = Helpers.Create<WeaponCriticalEdgeIncreaseStackable>();
                 x.Value = 1;

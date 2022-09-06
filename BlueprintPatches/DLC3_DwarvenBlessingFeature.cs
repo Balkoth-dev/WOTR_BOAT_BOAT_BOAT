@@ -54,9 +54,9 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dLC3_DwarvenBuff = BlueprintTool.Get<BlueprintBuff>("fb0c7bafd33042a8ac4c998a3b1a3893");
                 var dungeonBoon_Dwarven = BlueprintTool.Get<BlueprintDungeonBoon>("16e92f99e49143b3afde282bb8b94a7a");
                 var dwarvenWaraxe = BlueprintTool.Get<BlueprintWeaponType>("a6925f5f897801449a648d865637e5a0").ToReference<BlueprintWeaponTypeReference>();
+                var dwarvenUrgrosh = BlueprintTool.Get<BlueprintWeaponType>("0ec97c08fdf87e44f8f16ba87b511743").ToReference<BlueprintWeaponTypeReference>(); ;
 
-                var newDescription = "Each dwarf in your party gains a +1 bonus to Constitution ability score and +3 to their base move speed for each dwarf in your party, including themselves. \nIn addition, whenever a dwarf hits with a Dwarven War Axe, they deal 1d4 additional damage, this damage is multipled on a critical hit.";
-
+                var newDescription = "Each dwarf in your party gains a +1 bonus to Constitution ability score, including themselves. \nIn addition, whenever a dwarf hits with a Dwarven War Axe or Dwarven Urgrosh, they deal an additional 1d6 additional damage, this damage is multipled on a critical hit.";
 
                 var warAxeDamage = Helpers.Create<ContextActionDealDamage>(c =>
                 {
@@ -73,7 +73,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                     };
                     c.Value = new ContextDiceValue
                     {
-                        DiceType = DiceType.D4,
+                        DiceType = DiceType.D6,
                         DiceCountValue = new ContextValue()
                         {
                             Value = 1
@@ -94,17 +94,19 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                     c.m_WeaponType = dwarvenWaraxe;
                 });
 
-                var x = Helpers.CreateCopy(dLC3_DwarvenBuff.GetComponent<AddContextStatBonus>());
-                x.Stat = StatType.Speed;
-                x.Multiplier = 3;
-
-                dLC3_DwarvenBuff.AddComponent<AddContextStatBonus>(c => { c = x; });
+                dLC3_DwarvenBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c =>
+                {
+                    c.OnlyHit = true;
+                    c.Action = new ActionList();
+                    c.Action.Actions = new GameAction[] { warAxeDamage };
+                    c.m_WeaponType = dwarvenUrgrosh;
+                });
 
                 dLC3_DwarvenBlessingFeature.m_Description = Helpers.CreateString(dLC3_DwarvenBlessingFeature + ".Description", newDescription);
                 dLC3_DwarvenBuff.m_Description = Helpers.CreateString(dLC3_DwarvenBuff + ".Description", newDescription);
                 dungeonBoon_Dwarven.m_Description = Helpers.CreateString(dungeonBoon_Dwarven + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, true);
+                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, false);
 
             }
         }

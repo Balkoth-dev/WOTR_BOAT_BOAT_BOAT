@@ -11,6 +11,9 @@ using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.Blueprints.Root;
 using System.Linq;
 using BlueprintCore.Utils;
+using UnityEngine;
+using Kingmaker.Controllers.Units;
+using Kingmaker.UnitLogic;
 
 namespace WOTR_BOAT_BOAT_BOAT
 {
@@ -43,6 +46,7 @@ namespace WOTR_BOAT_BOAT_BOAT
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = OnGUI;
             modEntry.OnSaveGUI = OnSaveGUI;
+            modEntry.OnUpdate = OnUpdate;
             harmony.PatchAll();
             EventBus.Subscribe(new InjectStuffOnLoad());
             return true;
@@ -113,6 +117,20 @@ namespace WOTR_BOAT_BOAT_BOAT
             enabled = value;
 
             return true;
+        }
+        static void OnUpdate(UnityModManager.ModEntry modEntry, float delta)
+        {
+#if DEBUG
+            if (Input.GetKeyDown(KeyCode.C) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+            {
+                UnitLifeController.SetLifeState(Game.Instance.Player.MainCharacter, UnitLifeState.Dead);
+            }
+#endif
+            if (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
+            {
+                Game.Instance.SaveGame(Game.Instance.SaveManager.GetNextAutoslot(), null);
+                Game.Instance.ResetToMainMenu();
+            }
         }
 
     }

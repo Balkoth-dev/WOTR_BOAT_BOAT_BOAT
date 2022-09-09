@@ -80,6 +80,12 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 Main.AddBoonOnAreaLoad(dungeonBoon_BarbarianHP, false);
 
+                //Weird issue where the description doesn't update in the selection screen. Readding it should fix the issue.
+                var dungeonRoot = BlueprintTool.Get<BlueprintDungeonRoot>("096f36d4e55b49129ddd2211b2c50513");
+                var dungeonBoonRef = new Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference() { deserializedGuid = dungeonBoon_BarbarianHP.AssetGuid };
+                dungeonRoot.m_Boons = dungeonRoot.m_Boons.RemoveFromArray(dungeonBoonRef);
+                dungeonRoot.m_Boons = dungeonRoot.m_Boons.AppendToArray(dungeonBoonRef);
+
                 var p = dungeonBoon_BarbarianHP;
                 Main.Log(p.Name + " - " + p.Description);
             }

@@ -54,11 +54,11 @@ namespace WOTR_BOAT_BOAT_BOAT
 
         private static void OnGUI(UnityModManager.ModEntry obj)
         {
-            UI.AutoWidth(); UI.Div(0, 15);
+            /*UI.AutoWidth(); UI.Div(0, 15);
             using (UI.VerticalScope())
             {
                 UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".grey().bold().size(20));
-                /*   UI.Toggle("Gold Dragon Spell Damage Fix".bold(), ref settings.PatchGoldDragonSpellDamage);
+                   UI.Toggle("Gold Dragon Spell Damage Fix".bold(), ref settings.PatchGoldDragonSpellDamage);
                    if(settings.PatchGoldDragonSpellDamage)
                    {
                        UI.Label("Spell Damage Dice Progression is changed to work as written. In addition, if an enemy has any energy vulnerability they'll be vulnerable to the attack at mythic rank 10.".green().size(10));
@@ -66,9 +66,9 @@ namespace WOTR_BOAT_BOAT_BOAT
                    else
                    {
                        UI.Label("Spell Damage Dice Progression is unchanged.".red().size(10));
-                   }*/
+                   }
 
-            }
+            }*/
         }
 
         private static bool Unload(UnityModManager.ModEntry arg)

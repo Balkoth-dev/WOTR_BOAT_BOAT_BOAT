@@ -76,7 +76,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 fastHealingBarbBuff.m_Icon = dLC3_BarbarianBloodragerHPBuffFeature.m_Icon;
                 fastHealingBarbBuff.m_Description = dLC3_BarbarianBloodragerHPBuffFeature.m_Description;
                 fastHealingBarbBuff.EditComponent<AddEffectFastHealing>(c => { c.Heal = 0; c.Bonus = h; });
-                fastHealingBarbBuff.EditComponent<AddEffectFastHealing>(c => { c.Heal = 0; c.Bonus = h; });
 
                 Helpers.AddBlueprint(fastHealingBarbBuff, fastHealingBarbBuff.AssetGuid);
 

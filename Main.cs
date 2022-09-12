@@ -54,21 +54,21 @@ namespace WOTR_BOAT_BOAT_BOAT
 
         private static void OnGUI(UnityModManager.ModEntry obj)
         {
-            /*UI.AutoWidth(); UI.Div(0, 15);
+            var dungeonRoot = BlueprintTool.Get<BlueprintDungeonRoot>("096f36d4e55b49129ddd2211b2c50513");
+            UI.AutoWidth(); UI.Div(0, 15);
             using (UI.VerticalScope())
             {
-                UI.Label("SETTINGS WILL NOT BE UPDATED UNTIL YOU RESTART YOUR GAME.".grey().bold().size(20));
-                   UI.Toggle("Gold Dragon Spell Damage Fix".bold(), ref settings.PatchGoldDragonSpellDamage);
-                   if(settings.PatchGoldDragonSpellDamage)
-                   {
-                       UI.Label("Spell Damage Dice Progression is changed to work as written. In addition, if an enemy has any energy vulnerability they'll be vulnerable to the attack at mythic rank 10.".green().size(10));
-                   }
-                   else
-                   {
-                       UI.Label("Spell Damage Dice Progression is unchanged.".red().size(10));
-                   }
+                UI.Label("CHEAT BOON:".grey().bold().size(20));
+                foreach (var v in dungeonRoot.m_Boons)
+                {
+                    var x = (BlueprintDungeonBoon)v.GetBlueprint();
+                    if (GUILayout.Button(x.Name, GUILayout.Width(250)))
+                    {
+                        ApplyBoon(x);
+                    }
+                }
 
-            }*/
+            }
         }
 
         private static bool Unload(UnityModManager.ModEntry arg)
@@ -101,6 +101,13 @@ namespace WOTR_BOAT_BOAT_BOAT
         {
             Game.Instance.Player.DungeonState.StageIndex = 999;
             Game.Instance.Player.DungeonState.Statistic.StageIndexBest = 998;
+        }
+
+        public static void ApplyBoon(BlueprintDungeonBoon bd)
+        {
+            Game.Instance.Player.DungeonState.SelectBoon(bd);
+            foreach(var p in Game.Instance.Player.PartyCharacters)
+            Game.Instance.Player.DungeonState.ApplyBoon(p);
         }
 
         public bool GetSettingValue(string b)

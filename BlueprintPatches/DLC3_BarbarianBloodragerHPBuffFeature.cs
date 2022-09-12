@@ -45,7 +45,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 var primalDruidArchetype = BlueprintTool.Get<BlueprintArchetype>("c1c86e2997fd4257a13ef5601b5dc6dd").ToReference<BlueprintArchetypeReference>();
                 var elementalRampagerArchetype = BlueprintTool.Get<BlueprintArchetype>("f815594bd1e3454182022d375bf70fd1").ToReference<BlueprintArchetypeReference>();
                 var fastHealing2 = BlueprintTool.Get<BlueprintBuff>("7ada82367e07da04f9421fa8d2818945");
-
+                
+                
                 foreach (var v in dLC3_BarbarianBloodragerHPProperty.GetComponents<ClassLevelGetter>().ToArray())
                 {
                     if (v.m_Archetype.ToString() == primalDruidArchetype.ToString())
@@ -53,13 +54,21 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                         v.m_Archetype = elementalRampagerArchetype;
                     }
                 }
-
                 var newDescription = "All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 1 every time they gain a level in that class.";
 
                 dLC3_BarbarianBloodragerHPBuffFeature.m_Description = Helpers.CreateString(dLC3_BarbarianBloodragerHPBuffFeature + ".Description", newDescription);
                 dungeonBoon_BarbarianHP.m_Description = Helpers.CreateString(dungeonBoon_BarbarianHP + ".Description", newDescription);
 
-                var h = Helpers.CreateCopy(dLC3_BarbarianBloodragerHPBuffFeature.GetComponent<AddContextStatBonus>().Value);
+                 //var h = Helpers.CreateCopy(dLC3_BarbarianBloodragerHPBuffFeature.GetComponent<AddContextStatBonus>().Value);
+                var h = Helpers.Create<ContextValue>(c => {
+                    c.ValueType = ContextValueType.CasterCustomProperty;
+                    c.Value = 0;
+                    c.ValueRank = Kingmaker.Enums.AbilityRankType.Default;
+                    c.ValueShared = Kingmaker.UnitLogic.Abilities.AbilitySharedValue.Damage;
+                    c.Property = UnitProperty.None;
+                    c.m_AbilityParameter = AbilityParameterType.Level;
+                    c.m_CustomProperty = dLC3_BarbarianBloodragerHPProperty.ToReference<BlueprintUnitPropertyReference>();
+                });
 
                 var fastHealingBarbBuff = Helpers.CreateCopy(fastHealing2);
                 fastHealingBarbBuff.AssetGuid = new BlueprintGuid(new Guid("c9c49c79-0177-4e99-991a-eb3c747aac9d"));

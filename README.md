@@ -12,6 +12,7 @@
 ## Changes
 ```
 * Ctrl+S will cause the game to save and exit to the main menu.
+* Experimental: Cheat menu added to select your boon.
 * Impervious Tailwind - All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.
 In addition, every time they are hit with an attack they heal equal to their level in this class.
 * Tailwind of the Hardy - All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 1 every time they gain a level in that class.

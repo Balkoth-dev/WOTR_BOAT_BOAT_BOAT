@@ -88,12 +88,12 @@ namespace WOTR_BOAT_BOAT_BOAT.Methods
         }
         public static void SaveGameWhenDeath()
         {
-            if (!Main.settings.toggleDeadIsDead)
+            try
+            {
+                if (!Main.settings.toggleDeadIsDead || (Game.Instance == null || Game.Instance.CurrentMode != GameModeType.Default))
             {
                 return;
             }
-            try
-            {
                 if (DungeonController.IsDungeonCampaign)
                 {
                     if (PartyDeathStateChanged())

@@ -42,14 +42,14 @@ namespace WOTR_BOAT_BOAT_BOAT
             var harmony = new Harmony(modEntry.Info.Id);
             AssetLoader.ModEntry = modEntry;
             modInfo = modEntry;
-            settings = Settings.Load<Settings>(modEntry);
+            /*settings = Settings.Load<Settings>(modEntry);
             var settingsFile = Path.Combine(modEntry.Path, "Settings.bak");
             var copyFile = Path.Combine(modEntry.Path, "Settings.xml");
             if (File.Exists(settingsFile) && !File.Exists(copyFile))
             {
                 File.Copy(settingsFile, copyFile, false);
             }
-            settings = Settings.Load<Settings>(modEntry);
+            settings = Settings.Load<Settings>(modEntry);*/
             modEntry.OnToggle = OnToggle;
             modEntry.OnGUI = OnGUI;
             modEntry.OnSaveGUI = OnSaveGUI;
@@ -66,6 +66,7 @@ namespace WOTR_BOAT_BOAT_BOAT
             UI.AutoWidth(); UI.Div(0, 15);
             using (UI.VerticalScope())
             {
+                /*
                 UI.Toggle("No Shame Mode".bold(), ref settings.toggleNoShame);
                 if (settings.toggleNoShame)
                 {
@@ -102,6 +103,7 @@ namespace WOTR_BOAT_BOAT_BOAT
                         ApplyBoon(x);
                     }
                 }
+                */
             }
         }
 

@@ -8,6 +8,6 @@
   "Id": "WOTR_BOAT_BOAT_BOAT",
   "ManagerVersion": "0.23.0",
   "Repository": "",
-  "Requirements": [],
+  "Requirements": [ "ModMenu-1.1.0" ],
   "Version": "1.0.6"
 }

@@ -11,6 +11,7 @@
 ```
 ## Changes
 ```
+* No Shame Mode: Toggling this option on will set your attempts to always be zero.
 * Ctrl+S will cause the game to save and exit to the main menu.
 * Experimental: Cheat menu added to select your boon.
 * Impervious Tailwind - All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.
@@ -37,6 +38,8 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 ```
 ## Change Log
 ```
+1.0.6
+Added "No Shame" mode. Toggling this option on will set your attempts to always be zero.
 ```
 
 ## Special Thanks

@@ -43,19 +43,12 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dungeonBoon_Electric = BlueprintTool.Get<BlueprintDungeonBoon>("c955ab1f11c646fc8bbb00248040024f");
                 var callLightningAbility = BlueprintTool.Get<BlueprintAbility>("0bd54216d38852947930320f6269a9d7");
 
-                var newDescription = "All electricity damage dealt by your party members is increased by 25%.\nIn addition you can cast Call Lighting as a swift action that scales with your character level.";
+                var newDescription = "All electricity damage dealt by your party members is increased by 25%.\nIn addition you can cast Call Lighting as a swift action.";
 
                 var callLightningSwift = Helpers.CreateCopy(callLightningAbility);
                 callLightningSwift.AssetGuid = new BlueprintGuid(new Guid("4a59f8ec-fa5a-4e60-b125-dd2efc6dfa4c"));
                 callLightningSwift.RemoveComponents<AbilityExecuteActionOnCast>();
                 callLightningSwift.ActionType = Kingmaker.UnitLogic.Commands.Base.UnitCommand.CommandType.Swift;
-
-                callLightningSwift.AddComponent<ContextRankConfig>(c =>
-                {
-                    c.m_Type = AbilityRankType.DamageDice;
-                    c.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;
-                    c.m_StepLevel = 3;
-                });
 
                 Helpers.AddBlueprint(callLightningSwift, callLightningSwift.AssetGuid);
 

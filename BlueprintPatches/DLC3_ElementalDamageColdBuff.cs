@@ -50,6 +50,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 var coldAreaEffectBuff = Helpers.CreateCopy(vrockAspectEffectBuff);
                 coldAreaEffectBuff.AssetGuid = new BlueprintGuid(new Guid("fe28bd42-7695-4b27-ac3d-d98083e6ff34"));
+                coldAreaEffectBuff.m_DisplayName = Helpers.CreateString(dLC3_ElementalDamageColdBuff + ".m_DisplayName", "Cold Aura");
 
                 var g = coldAreaEffectBuff.GetComponent<ContextRankConfig>();
                 g.m_BaseValueType = ContextRankBaseValueType.CharacterLevel;

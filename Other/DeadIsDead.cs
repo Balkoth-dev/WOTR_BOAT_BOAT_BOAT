@@ -13,6 +13,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using WOTR_BOAT_BOAT_BOAT.Utilities;
+using WOTR_BOAT_BOAT_BOAT.Settings;
 
 namespace WOTR_BOAT_BOAT_BOAT.Methods
 {
@@ -23,23 +24,43 @@ namespace WOTR_BOAT_BOAT_BOAT.Methods
         private static BlueprintCampaignReference dlc3CampaignRef = new BlueprintCampaignReference() { deserializedGuid = new BlueprintGuid(new Guid("e1bde745-d6ad-47c0-bc9f-b8e479b29153")) };
         private static bool PartyDeathStateChanged()
         {
-            foreach (var p in Game.Instance.Player.PartyCharacters)
+            var mc = Game.Instance.Player.MainCharacter;
+            var characterIsDead = mc.Value.State.IsDead;
+            if (party.ContainsKey(Game.Instance.Player.MainCharacter))
             {
-                var characterIsDead = p.Value.State.IsFinallyDead;
-                if (party.ContainsKey(p))
+                if (characterIsDead)
                 {
-                    if (characterIsDead)
+                    if (party[mc] != characterIsDead)
                     {
-                        if (party[p] != characterIsDead)
-                        {
-                            party[p] = characterIsDead;
-                            return true;
-                        }
+                        party[mc] = characterIsDead;
+                        return true;
                     }
                 }
-                else
+            }
+            else
+            {
+                party.Add(mc, mc.Value.State.IsDead);
+            }
+            foreach (var p in Game.Instance.Player.PartyCharacters)
+            {
+                if (p != mc)
                 {
-                    party.Add(p, p.Value.State.IsFinallyDead);
+                    characterIsDead = p.Value.State.IsFinallyDead;
+                    if (party.ContainsKey(p))
+                    {
+                        if (characterIsDead)
+                        {
+                            if (party[p] != characterIsDead)
+                            {
+                                party[p] = characterIsDead;
+                                return true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        party.Add(p, p.Value.State.IsFinallyDead);
+                    }
                 }
             }
             return false;
@@ -90,7 +111,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Methods
         {
             try
             {
-                if (!Main.settings.toggleDeadIsDead || (Game.Instance == null || Game.Instance.CurrentMode != GameModeType.Default))
+                if ((Game.Instance == null || Game.Instance.CurrentMode != GameModeType.Default) || !Settings.Settings.GetSetting<bool>("deadisdead"))
             {
                 return;
             }

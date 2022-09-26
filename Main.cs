@@ -19,6 +19,7 @@ using Kingmaker.Dungeon;
 using System.Collections.Generic;
 using Kingmaker.EntitySystem.Entities;
 using WOTR_BOAT_BOAT_BOAT.Methods;
+using WOTR_BOAT_BOAT_BOAT.Settings;
 
 namespace WOTR_BOAT_BOAT_BOAT
 {
@@ -26,16 +27,12 @@ namespace WOTR_BOAT_BOAT_BOAT
     {
         public class Settings : UnityModManager.ModSettings
         {
-            public bool toggleAllowAchievementsDuringModdedGame = false;
-            public bool toggleNoShame = false;
-            public bool toggleDeadIsDead = false;
             public override void Save(UnityModManager.ModEntry modEntry)
             {
                 Save(this, modEntry);
             }
         }
         public static UnityModManager.ModEntry modInfo = null;
-        public static Settings settings;
         private static bool enabled;
         static bool Load(UnityModManager.ModEntry modEntry)
         {
@@ -94,6 +91,7 @@ namespace WOTR_BOAT_BOAT_BOAT
                 {
                     UI.Label("Taken from ToyBox, allows achievements to be used with a modded game. If you use ToyBox you don't need this.".red().size(10));
                 }
+                */
                 UI.Label("CHEAT BOON:".grey().bold().size(20));
                 foreach (var v in dungeonRoot.m_Boons)
                 {
@@ -103,7 +101,6 @@ namespace WOTR_BOAT_BOAT_BOAT
                         ApplyBoon(x);
                     }
                 }
-                */
             }
         }
 
@@ -141,7 +138,7 @@ namespace WOTR_BOAT_BOAT_BOAT
 
         public static void NoShame()
         {
-            if (settings.toggleNoShame)
+            if (WOTR_BOAT_BOAT_BOAT.Settings.Settings.GetSetting<bool>("noshame"))
             {
                 Game.Instance.Player.DungeonState.Statistic.DelveNumber = 0;
             }
@@ -160,7 +157,7 @@ namespace WOTR_BOAT_BOAT_BOAT
         }
         public static void OnSaveGUI(UnityModManager.ModEntry modEntry)
         {
-            settings.Save(modEntry);
+            //settings.Save(modEntry);
         }
 
         static bool OnToggle(UnityModManager.ModEntry modEntry, bool value)

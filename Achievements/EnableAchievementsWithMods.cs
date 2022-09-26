@@ -17,7 +17,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Achievements
         private static void Postfix(ref bool __result, AchievementEntity __instance)
         {
             //modLogger.Log("AchievementEntity.IsDisabled");
-            if (Main.settings.toggleAllowAchievementsDuringModdedGame)
+            if (Settings.Settings.GetSetting<bool>("cheevos"))
             {
                 if (__instance.Data.OnlyMainCampaign && !Game.Instance.Player.Campaign.IsMainGameContent)
                 {

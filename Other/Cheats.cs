@@ -30,6 +30,13 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
             if (Game.Instance.CurrentlyLoadedArea != BlueprintDungeonRoot.Instance.Ship)
                 Game.Instance.LoadArea(BlueprintDungeonRoot.Instance.Ship.DefaultPreset.EnterPoint, AutoSaveMode.None);
         }
+        public static void TeleportBackToIslandCheat()
+        {
+            DungeonIslandState islandCurrent = Game.Instance.Player.DungeonState.MapState.IslandCurrent;
+            if (islandCurrent.Blueprint.Area == null)
+                return;
+            Game.Instance.LoadArea(islandCurrent.Blueprint.Area.DefaultPreset.EnterPoint, AutoSaveMode.None);
+        }
         public static void MoveToNextIslandCheat()
         {
             DungeonController.MoveToNextIslandCheat(1);

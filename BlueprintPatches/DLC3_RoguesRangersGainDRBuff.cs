@@ -25,6 +25,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 {
     class DLC3_RoguesRangersGainDRBuff
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -36,13 +37,18 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 Initialized = true;
 
                 DLC3_RoguesRangersGainDRBuff_Patch();
+                Main.Log("DLC3_RoguesRangersGainDRBuff_Patch");
 
             }
 
             private static void DLC3_RoguesRangersGainDRBuff_Patch()
             {
-                var dLC3_RoguesRangersGainDRBuff = BlueprintTool.Get<BlueprintBuff>("e9f7b6b787ea4fdaa4bfc928513f8929");
                 var dungeonBoon_Rogues = BlueprintTool.Get<BlueprintDungeonBoon>("2e28b57ab98b47ddb92c17df62725863");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Rogues.Name))
+                {
+                    return;
+                }
+                var dLC3_RoguesRangersGainDRBuff = BlueprintTool.Get<BlueprintBuff>("e9f7b6b787ea4fdaa4bfc928513f8929");
                 var dLC3_RoguesRangersGainDRBuffLevelGetter = BlueprintTool.Get<BlueprintUnitProperty>("2aa73fe91377456b8734ba94a506d541");
 
                 var newDescription = "All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.\nIn addition, every time they are hit with an attack they heal equal to their level in this class.";
@@ -68,11 +74,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 dLC3_RoguesRangersGainDRBuff.m_Description = Helpers.CreateString(dLC3_RoguesRangersGainDRBuff + ".Description", newDescription);
                 dungeonBoon_Rogues.m_Description = Helpers.CreateString(dungeonBoon_Rogues + ".Description", newDescription);
+                
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Rogues, false);
-
-                var p = dungeonBoon_Rogues;
-                Main.Log(p.Name + " - " + p.Description);
 
             }
         }

@@ -30,6 +30,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_BludgeoningWeaponsLevelBuff
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -41,13 +42,18 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Initialized = true;
 
                 DLC3_BludgeoningWeaponsLevelBuff_Patch();
+                Main.Log("DLC3_BludgeoningWeaponsLevelBuff_Patch");
 
             }
 
             private static void DLC3_BludgeoningWeaponsLevelBuff_Patch()
             {
-                var dLC3_BludgeoningWeaponsLevelBuff = BlueprintTool.Get<BlueprintBuff>("ebbeb216ee414e86bdb7238e07ad88f7");
                 var dungeonBoon_Bludgeoning = BlueprintTool.Get<BlueprintDungeonBoon>("05815e81fa7e490584165e2ebb835134");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Bludgeoning.Name))
+                {
+                    return;
+                }
+                var dLC3_BludgeoningWeaponsLevelBuff = BlueprintTool.Get<BlueprintBuff>("ebbeb216ee414e86bdb7238e07ad88f7");
                 var dLC3_SlashingBludgeoningLevelRankGetter = BlueprintTool.Get<BlueprintUnitProperty>("54a35f59c7a74a39b4ad214359269fb7");
 
                 var newDescription = "All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with bludgeoning weapons.";
@@ -56,11 +62,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 dLC3_BludgeoningWeaponsLevelBuff.m_Description = Helpers.CreateString(dLC3_BludgeoningWeaponsLevelBuff + ".Description", newDescription);
                 dungeonBoon_Bludgeoning.m_Description = Helpers.CreateString(dungeonBoon_Bludgeoning + ".Description", newDescription);
+                
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Bludgeoning, false);
-
-                var p = dungeonBoon_Bludgeoning;
-                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

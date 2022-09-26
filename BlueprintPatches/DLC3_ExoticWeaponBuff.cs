@@ -30,6 +30,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ExoticWeaponBuff
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -41,13 +42,18 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Initialized = true;
 
                 DLC3_ExoticWeaponBuff_Patch();
+                Main.Log("DLC3_ExoticWeaponBuff_Patch");
 
             }
 
             private static void DLC3_ExoticWeaponBuff_Patch()
             {
-                var dLC3_ExoticWeaponBuff = BlueprintTool.Get<BlueprintBuff>("bb564ac242ae4fe1ab7def92b325de3a");
                 var dungeonBoon_Exotic = BlueprintTool.Get<BlueprintDungeonBoon>("89987c26492844a2a07afc2715474b1b");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Exotic.Name))
+                {
+                    return;
+                }
+                var dLC3_ExoticWeaponBuff = BlueprintTool.Get<BlueprintBuff>("bb564ac242ae4fe1ab7def92b325de3a");
 
                 var bastardSwordProficiency = BlueprintTool.Get<BlueprintFeature>("57299a78b2256604dadf1ab9a42e2873").ToReference<BlueprintFeatureReference>();
                 var doubleAxeProficiency = BlueprintTool.Get<BlueprintFeature>("0ea5cf20b69aea44793043e1926e9057").ToReference<BlueprintFeatureReference>();
@@ -88,8 +94,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dLC3_ExoticWeaponBuff.m_Description = Helpers.CreateString(dLC3_ExoticWeaponBuff + ".Description", newDescription);
                 dungeonBoon_Exotic.m_Description = Helpers.CreateString(dungeonBoon_Exotic + ".Description", newDescription);
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Exotic, false);
                 var dungeonBoon_UnarmedStrikes = BlueprintTool.Get<BlueprintDungeonBoon>("5c7a5a0220e84b3fa5d78d427d10bf6b");
+                
             }
         }
     }

@@ -161,6 +161,9 @@
     <Folder Include="Output\Assets\Abilities\" />
     <Folder Include="Spellbook\" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Output\Assets\Localizations.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="Publicise" AfterTargets="Clean">
     <ItemGroup>

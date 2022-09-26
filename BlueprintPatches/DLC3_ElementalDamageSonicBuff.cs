@@ -21,6 +21,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElementalDamageSonicBuff
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -32,24 +33,26 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Initialized = true;
 
                 DLC3_ElementalDamageSonicBuff_Patch();
+                Main.Log("DLC3_ElementalDamageSonicBuff_Patch");
 
             }
 
             private static void DLC3_ElementalDamageSonicBuff_Patch()
             {
-                var dLC3_ElementalDamageSonicBuff = BlueprintTool.Get<BlueprintBuff>("f7e94934bcda4b16b9d6d24e0b745283");
                 var dungeonBoon_Sonic = BlueprintTool.Get<BlueprintDungeonBoon>("57dbbe89c45a48c9a19196e206064273");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Sonic.Name))
+                {
+                    return;
+                }
+                var dLC3_ElementalDamageSonicBuff = BlueprintTool.Get<BlueprintBuff>("f7e94934bcda4b16b9d6d24e0b745283");
 
                 var newDescription = "All sonic damage dealt by your party members is increased by 50%.";
                 dLC3_ElementalDamageSonicBuff.EditComponent<EnergyDamageBonus>(c => { c.Multiplier = (float)1.5; });
 
                 dLC3_ElementalDamageSonicBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageSonicBuff + ".Description", newDescription);
                 dungeonBoon_Sonic.m_Description = Helpers.CreateString(dungeonBoon_Sonic + ".Description", newDescription);
+                
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Sonic, false);
-
-                var p = dungeonBoon_Sonic;
-                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

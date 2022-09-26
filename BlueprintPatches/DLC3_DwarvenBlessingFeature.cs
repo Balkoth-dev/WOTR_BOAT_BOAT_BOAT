@@ -33,6 +33,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_DwarvenBlessingFeature
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -44,14 +45,19 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Initialized = true;
 
                 DLC3_DwarvenBlessingFeature_Patch();
+                Main.Log("DLC3_DwarvenBlessingFeature_Patch");
 
             }
 
             private static void DLC3_DwarvenBlessingFeature_Patch()
             {
+                var dungeonBoon_Dwarven = BlueprintTool.Get<BlueprintDungeonBoon>("16e92f99e49143b3afde282bb8b94a7a");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Dwarven.Name))
+                {
+                    return;
+                }
                 var dLC3_DwarvenBlessingFeature = BlueprintTool.Get<BlueprintFeature>("ef9202f408454e17bb3d0ed16bf59adf");
                 var dLC3_DwarvenBuff = BlueprintTool.Get<BlueprintBuff>("fb0c7bafd33042a8ac4c998a3b1a3893");
-                var dungeonBoon_Dwarven = BlueprintTool.Get<BlueprintDungeonBoon>("16e92f99e49143b3afde282bb8b94a7a");
                 var dwarvenWaraxe = BlueprintTool.Get<BlueprintWeaponType>("a6925f5f897801449a648d865637e5a0").ToReference<BlueprintWeaponTypeReference>();
                 var dwarvenUrgrosh = BlueprintTool.Get<BlueprintWeaponType>("0ec97c08fdf87e44f8f16ba87b511743").ToReference<BlueprintWeaponTypeReference>(); ;
 
@@ -104,11 +110,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 dLC3_DwarvenBlessingFeature.m_Description = Helpers.CreateString(dLC3_DwarvenBlessingFeature + ".Description", newDescription);
                 dLC3_DwarvenBuff.m_Description = Helpers.CreateString(dLC3_DwarvenBuff + ".Description", newDescription);
                 dungeonBoon_Dwarven.m_Description = Helpers.CreateString(dungeonBoon_Dwarven + ".Description", newDescription);
+                
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Dwarven, false);
-
-                var p = dungeonBoon_Dwarven;
-                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

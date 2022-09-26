@@ -28,13 +28,18 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             Initialized = true;
 
             DLC3_ArmorPenaltyReduceBuff_Patch();
+            Main.Log("DLC3_ArmorPenaltyReduceBuff_Patch");
 
         }
 
         private static void DLC3_ArmorPenaltyReduceBuff_Patch()
         {
-            var dLC3_BonusAttackDamageBowsBuff = BlueprintTool.Get<BlueprintBuff>("c541ad0952ba428a9bd26e4a1fa93020");
             var dungeonBoon_BonusDmgBows = BlueprintTool.Get<BlueprintDungeonBoon>("088003e6159b40a09a05233603ac5d15");
+            if (!Settings.Settings.GetSetting<bool>(dungeonBoon_BonusDmgBows.Name))
+            {
+                return;
+            }
+            var dLC3_BonusAttackDamageBowsBuff = BlueprintTool.Get<BlueprintBuff>("c541ad0952ba428a9bd26e4a1fa93020");
 
             var pointBlankShot = BlueprintTool.Get<BlueprintFeature>("0da0c194d6e1d43419eb8d990b28e0ab").ToReference<BlueprintFeatureReference>();
             var preciseShot = BlueprintTool.Get<BlueprintFeature>("8f3d1e6b4be006f4d896081f2f889665").ToReference<BlueprintFeatureReference>();
@@ -50,10 +55,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             dLC3_BonusAttackDamageBowsBuff.m_Description = Helpers.CreateString(dLC3_BonusAttackDamageBowsBuff + ".Description", newDescription);
             dungeonBoon_BonusDmgBows.m_Description = Helpers.CreateString(dungeonBoon_BonusDmgBows + ".Description", newDescription);
 
-            Main.AddBoonOnAreaLoad(dungeonBoon_BonusDmgBows, false);
-
-            var p = dungeonBoon_BonusDmgBows;
-            Main.Log(p.Name + " - " + p.Description);
         }
     }
 }

@@ -59,49 +59,6 @@ namespace WOTR_BOAT_BOAT_BOAT
 
         private static void OnGUI(UnityModManager.ModEntry obj)
         {
-            var dungeonRoot = BlueprintTool.Get<BlueprintDungeonRoot>("096f36d4e55b49129ddd2211b2c50513");
-            UI.AutoWidth(); UI.Div(0, 15);
-            using (UI.VerticalScope())
-            {
-                /*
-                UI.Toggle("No Shame Mode".bold(), ref settings.toggleNoShame);
-                if (settings.toggleNoShame)
-                {
-                    UI.Label("Your attempts number will always be set to zero. Toggling this off will cause the game to count your attempts normally.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Toggling this option on will cause your number of attempts to always be displayed as zero.".red().size(10));
-                }
-                UI.Toggle("Dead Is Dead".bold(), ref settings.toggleDeadIsDead);
-                if (settings.toggleDeadIsDead)
-                {
-                    UI.Label("When a party member dies, your save is copied to a backup file called \"BBB_Backup.bak\" and then deleted.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("When toggled on, when a party member dies, your save is copied to a backup file and then deleted.".red().size(10));
-                }
-                UI.Toggle("Allow Achivements With Modded Game".bold(), ref settings.toggleAllowAchievementsDuringModdedGame);
-                if (settings.toggleAllowAchievementsDuringModdedGame)
-                {
-                    UI.Label("Taken from ToyBox, allows achievements to be used with a modded game. If you use ToyBox you don't need this.".green().size(10));
-                }
-                else
-                {
-                    UI.Label("Taken from ToyBox, allows achievements to be used with a modded game. If you use ToyBox you don't need this.".red().size(10));
-                }
-                */
-                UI.Label("CHEAT BOON:".grey().bold().size(20));
-                foreach (var v in dungeonRoot.m_Boons)
-                {
-                    var x = (BlueprintDungeonBoon)v.GetBlueprint();
-                    if (GUILayout.Button(x.Name, GUILayout.Width(250)))
-                    {
-                        ApplyBoon(x);
-                    }
-                }
-            }
         }
 
         private static bool Unload(UnityModManager.ModEntry arg)

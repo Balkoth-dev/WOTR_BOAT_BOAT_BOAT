@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Collection>
+  <SettingsUI>
+    <element name ="settingsSubheader">
+      <lang value="enGB">
+        <name>Settings</name>
+      </lang>
+    </element>
+  </SettingsUI>
+  <Patches>
+  </Patches>
+  <Enhancements>
+  </Enhancements>
+</Collection>

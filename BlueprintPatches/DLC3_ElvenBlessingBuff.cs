@@ -29,6 +29,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElvenBlessingBuff
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -40,13 +41,18 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Initialized = true;
 
                 DLC3_ElvenBlessingBuff_Patch();
+                Main.Log("DLC3_ElvenBlessingBuff_Patch");
 
             }
 
             private static void DLC3_ElvenBlessingBuff_Patch()
             {
-                var dLC3_ElvenBlessingBuff = BlueprintTool.Get<BlueprintBuff>("8b845d7f13c4402fb70f50e90bd407ad");
                 var dungeonBoon_Elven = BlueprintTool.Get<BlueprintDungeonBoon>("dbb242c6be10406799fd659feb40d266");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Elven.Name))
+                {
+                    return;
+                }
+                var dLC3_ElvenBlessingBuff = BlueprintTool.Get<BlueprintBuff>("8b845d7f13c4402fb70f50e90bd407ad");
 
                 var newDescription = "All elves in your party gain a bonus on initiative rolls equal to their character level.\nIn addition, all Elven Curved Blades have their critical hit range increased by one.";
 
@@ -61,11 +67,8 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 dLC3_ElvenBlessingBuff.m_Description = Helpers.CreateString(dLC3_ElvenBlessingBuff + ".Description", newDescription);
                 dungeonBoon_Elven.m_Description = Helpers.CreateString(dungeonBoon_Elven + ".Description", newDescription);
+                
 
-                Main.AddBoonOnAreaLoad(dungeonBoon_Elven, false);
-
-                var p = dungeonBoon_Elven;
-                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

@@ -25,6 +25,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElementalDamageColdBuff
     {
+        [HarmonyPriority(Priority.First)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -36,20 +37,17 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Initialized = true;
 
                 DLC3_ElementalDamageColdBuff_Patch();
+                Main.Log("DLC3_ElementalDamageColdBuff_Patch");
 
             }
 
             private static void DLC3_ElementalDamageColdBuff_Patch()
             {
-                var dLC3_ElementalDamageColdBuff = BlueprintTool.Get<BlueprintBuff>("59048aad5ab4455fb16d5b229a057049");
-                var dungeonBoon_Cold = BlueprintTool.Get<BlueprintDungeonBoon>("7f2e836a40a94833ba75a82415712d17");
-                
                 var vrockAspectArea = BlueprintTool.Get<BlueprintAbilityAreaEffect>("25e6bcaf271e996468d883a9f60b41e9");
                 var vrockAspectEffectBuff = BlueprintTool.Get<BlueprintBuff>("76eb2cd9b1eec0b4681c648d33c5ae3b");
-
-
                 var coldAreaEffectBuff = Helpers.CreateCopy(vrockAspectEffectBuff);
                 coldAreaEffectBuff.AssetGuid = new BlueprintGuid(new Guid("fe28bd42-7695-4b27-ac3d-d98083e6ff34"));
+                var dLC3_ElementalDamageColdBuff = BlueprintTool.Get<BlueprintBuff>("59048aad5ab4455fb16d5b229a057049");
                 coldAreaEffectBuff.m_DisplayName = Helpers.CreateString(dLC3_ElementalDamageColdBuff + ".m_DisplayName", "Cold Aura");
 
                 var g = coldAreaEffectBuff.GetComponent<ContextRankConfig>();
@@ -68,6 +66,12 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 Helpers.AddBlueprint(coldArea, coldArea.AssetGuid);
 
+                var dungeonBoon_Cold = BlueprintTool.Get<BlueprintDungeonBoon>("7f2e836a40a94833ba75a82415712d17");
+                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Cold.Name))
+                {
+                    return;
+                }
+                
                 dLC3_ElementalDamageColdBuff.AddComponent<AddAreaEffect>(c =>
                 {
                     c.m_AreaEffect = coldArea.ToReference<BlueprintAbilityAreaEffectReference>();
@@ -77,11 +81,6 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 dLC3_ElementalDamageColdBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageColdBuff + ".Description", newDescription);
                 dungeonBoon_Cold.m_Description = Helpers.CreateString(dungeonBoon_Cold + ".Description", newDescription);
-
-                Main.AddBoonOnAreaLoad(dungeonBoon_Cold, false);
-
-                var p = dungeonBoon_Cold;
-                Main.Log(p.Name + " - " + p.Description);
             }
         }
     }

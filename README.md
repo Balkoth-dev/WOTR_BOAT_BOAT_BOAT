@@ -1,5 +1,8 @@
 # BOAT BOAT BOAT
 
+Requires ModMenu:
+https://github.com/WittleWolfie/ModMenu
+![alt text](https://github.com/Balkoth-dev/WOTR_BOAT_BOAT_BAT/blob/master/BoatBoatBoatMenu.png?raw=true)
 
 ## How to Install
 
@@ -11,12 +14,18 @@
 ```
 ## Changes
 ```
+* Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
+* Disabled Tailwind of the Hardy Changes to be reviewed at a later date.
+* Added ModMenu support.
+* Added new cheats such as teleporting you to the port, island, or boat; finishing the island you are on; showing the map anywhere you are; etc.
+* New hotkey support thanks to ModMenu.
+* New cheat to add a tailwind to your party.
 * No Shame Mode: Toggling this option on will set your attempts to always be zero.
+* Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
 * Ctrl+S will cause the game to save and exit to the main menu.
 * Experimental: Cheat menu added to select your boon.
 * Impervious Tailwind - All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.
 In addition, every time they are hit with an attack they heal equal to their level in this class.
-* Tailwind of the Hardy - All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 1 every time they gain a level in that class.
 * Tailwind of Ironclad Magic - Arcane spell failure chance for wearing armor is reduced by 20% for you and your party members. When a spell is cast it does bonus damage equal to 3% for each 1% of their arcane spell failure, before reductions, even if it's not an arcane spell.  (Only the description is changed to match the actual effect of the ability)
 * Crashing Tailwind - All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with bludgeoning weapons.
 * Tailwind of the Bearded - Each dwarf in your party gains a +1 bonus to Constitution ability score, including themselves. 
@@ -38,6 +47,14 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 ```
 ## Change Log
 ```
+1.0.7
+Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
+Disabled Tailwind of the Hardy Changes to be reviewed at a later date.
+Added ModMenu support.
+Added new cheats such as teleporting you to the port, island, or boat; finishing the island you are on; showing the map anywhere you are; etc.
+New hotkey support thanks to ModMenu.
+New cheat to add a tailwind to your party.
+
 1.0.6
 Added "No Shame" mode. Toggling this option on will set your attempts to always be zero.
 ```

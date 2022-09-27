@@ -20,7 +20,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElementalDamageAcidBuff
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -46,14 +46,14 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Helpers.AddBlueprint(acidBombInfinite, acidBombInfinite.AssetGuid);
 
                 var dungeonBoon_Acid = BlueprintTool.Get<BlueprintDungeonBoon>("30d5a9af67c844eaba0a9eccd0e10c39");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Acid.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Acid"))
                 {
                     return;
                 }
 
                 var dLC3_ElementalDamageAcidBuff = BlueprintTool.Get<BlueprintBuff>("ef6c34c686854e219a465b152c542552");
 
-                var newDescription = "All acid damage dealt by your party members is increased by 25%. \nIn addition all party members gain the ability to throw Acid Bombs like an alchemist an unlimited amount of times.";
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Acid");
 
                 dLC3_ElementalDamageAcidBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageAcidBuff + ".Description", newDescription);
                 dungeonBoon_Acid.m_Description = Helpers.CreateString(dungeonBoon_Acid + ".Description", newDescription);

@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Collection>
+  <SettingsUI>
+    <subheaders>
+      <subheader key="settingssubheader">
+        <value>
+          <text lang="en">Settings</text>
+        </value>
+      </subheader>
+      <subheader key="teleportcheatssubheader">
+        <value>
+          <text lang="en">Teleport Cheats</text>
+        </value>
+      </subheader>
+      <subheader key="expeditioncheatssubheader">
+        <value>
+          <text lang="en">Expedition Cheats</text>
+        </value>
+      </subheader>
+      <subheader key="misccheatssubheader">
+        <value>
+          <text lang="en">Misc Cheats</text>
+        </value>
+      </subheader>
+      <subheader key="patchessubheader">
+        <value>
+          <text lang="en">Patches (Restart Required)</text>
+        </value>
+      </subheader>
+      <subheader key="settailwindsubheader">
+        <value>
+          <text lang="en">Set Tailwind</text>
+        </value>
+      </subheader>
+      <subheader key="hotkeysubheader">
+        <value>
+          <text lang="en">Hotkeys</text>
+        </value>
+      </subheader>
+    </subheaders>
+    <toggles>
+      <toggle key="noshametoggle">
+        <description key="noshametoggle-desc">
+          <text lang="en">No Shame</text>
+        </description>
+        <longDescription key="noshametoggle-long-desc">
+          <text lang="en">Toggling this option on will cause your number of attempts to always be displayed as zero.</text>
+        </longDescription>
+      </toggle>
+      <toggle key="deadisdeadtoggle">
+        <description key="deadisdeadtoggle-desc">
+          <text lang="en">Dead Is Dead</text>
+        </description>
+        <longDescription key="deadisdeadtoggle-long-desc">
+          <text lang="en">When a party member dies, your save is copied to a backup file called \"BBB_Backup.bak\" and then deleted.</text>
+        </longDescription>
+      </toggle>
+      <toggle key="cheevostoggle">
+        <description key="cheevostoggle-desc">
+          <text lang="en">Cheevos</text>
+        </description>
+        <longDescription key="cheevostoggle-long-desc">
+          <text lang="en">RESTART REQUIRED!\nTaken from ToyBox, allows achievements to be used with a modded game. If you use ToyBox you don't need this.</text>
+        </longDescription>
+      </toggle>
+    </toggles>
+    <buttons>
+      <button key="teleportbacktoship">
+        <name>
+          <text lang="en">BOAT BOAT BOAT</text>
+        </name>
+        <description>
+          <text lang="en">Teleport back to ship.</text>
+        </description>
+        <longDescription>
+          <text lang="en">Teleports you back to the ship.</text>
+        </longDescription>
+      </button>
+      <button key="teleportbacktoisland">
+        <name>
+          <text lang="en">Explorer Time</text>
+        </name>
+        <description>
+          <text lang="en">Teleport back to your current island.</text>
+        </description>
+        <longDescription>
+          <text lang="en">Teleports you to your current island.</text>
+        </longDescription>
+      </button>
+      <button key="teleportbacktoport">
+        <name>
+          <text lang="en">Little Bit of Chicken Fried</text>
+        </name>
+        <description>
+          <text lang="en">Teleport Back To Port</text>
+        </description>
+        <longDescription>
+          <text lang="en">Teleports you back to port.</text>
+        </longDescription>
+      </button>
+      <button key="finishcurrentisland">
+        <name>
+          <text lang="en">We're moving on</text>
+        </name>
+        <description>
+          <text lang="en">Finish your current island.</text>
+        </description>
+        <longDescription>
+          <text lang="en">Your current island will be considered complete and you will be teleported back to the ship.</text>
+        </longDescription>
+      </button>
+      <button key="movetonextisland">
+        <name>
+          <text lang="en">Magical Boat Warp</text>
+        </name>
+        <description>
+          <text lang="en">Move to Next Island</text>
+        </description>
+        <longDescription>
+          <text lang="en">Completes the current island and moves you to the next in the chain.</text>
+        </longDescription>
+      </button>
+      <button key="completeexpedition">
+        <name>
+          <text lang="en">I want new islands!</text>
+        </name>
+        <description>
+          <text lang="en">Complete Expedition</text>
+        </description>
+        <longDescription>
+          <text lang="en">Completes the current expedition and teleports you back to port.</text>
+        </longDescription>
+      </button>
+      <button key="showmapbutton">
+        <name>
+          <text lang="en">I'M THE MAP!</text>
+        </name>
+        <description>
+          <text lang="en">Show Map</text>
+        </description>
+        <longDescription>
+          <text lang="en">Shows the map no matter where you currently are.</text>
+        </longDescription>
+      </button>
+    </buttons>
+    <keybindings>
+      <keybinding key="showmapkeybinding">
+        <description>
+          <text lang="en">Show Map</text>
+        </description>
+        <longDescription>
+          <text lang="en">Shows the map no matter where you currently are.</text>
+        </longDescription>
+      </keybinding>
+      <keybinding key="teleportbacktoshipkeybinding">
+        <description>
+          <text lang="en">Teleport back to ship</text>
+        </description>
+        <longDescription>
+          <text lang="en">Teleports you back to the ship.</text>
+        </longDescription>
+      </keybinding>
+      <keybinding key="teleportbacktoislandkeybinding">
+        <description>
+          <text lang="en">Teleport back to your current island.</text>
+        </description>
+        <longDescription>
+          <text lang="en">Teleports you to your current island.</text>
+        </longDescription>
+      </keybinding>
+      <button key="teleportbacktoportkeybinding">
+        <description>
+          <text lang="en">Teleport Back To Port</text>
+        </description>
+        <longDescription>
+          <text lang="en">Teleports you back to port.</text>
+        </longDescription>
+      </button>
+      <keybinding key="finishcurrentislandkeybinding">
+        <description>
+          <text lang="en">Finish your current island.</text>
+        </description>
+        <longDescription>
+          <text lang="en">Your current island will be considered complete and you will be teleported back to the ship.</text>
+        </longDescription>
+      </keybinding>
+      <keybinding key="completeexpeditionkeybinding">
+        <description>
+          <text lang="en">Complete Expedition</text>
+        </description>
+        <longDescription>
+          <text lang="en">Completes the current expedition and teleports you back to port.</text>
+        </longDescription>
+      </keybinding>
+      <keybinding key="movetonextislandkeybinding">
+        <description>
+          <text lang="en">Move to Next Island</text>
+        </description>
+        <longDescription>
+          <text lang="en">Completes the current island and moves you to the next in the chain.</text>
+        </longDescription>
+      </keybinding>
+      <keybinding key="startoverkeybinding">
+        <description>
+          <text lang="en">Start Over</text>
+        </description>
+        <longDescription>
+          <text lang="en">End the main character's life in order to start your run over.</text>
+        </longDescription>
+      </keybinding>
+      <keybinding key="saveandexitkeybinding">
+        <description>
+          <text lang="en">Save And Exit</text>
+        </description>
+        <longDescription>
+          <text lang="en">Saves and exits the game.</text>
+        </longDescription>
+      </keybinding>
+    </keybindings>
+    <DropdownButtons>
+      <dropdownButton key="addBoon">
+        <description>
+          <text lang="en">Add Boon</text>
+        </description>
+        <buttonText>
+          <text lang="en">Boon Me Up!</text>
+        </buttonText>
+        <longDescription>
+          <text lang="en">Experimental: Adds a new boon to your character. (Currently adds a boon on top of your current one, use at your own risk.)</text>
+        </longDescription>
+      </dropdownButton>
+    </DropdownButtons>
+  </SettingsUI>
+  <Patches>
+    <Patch key="dungeonBoon_ArcaneArmor" name="Tailwind of Ironclad Magic">
+      <description>
+        <text lang="en">Arcane spell failure chance for wearing armor is reduced by 20% for you and your party members. When a spell is cast it does bonus damage equal to 3% for each 1% of their arcane spell failure, before reductions, even if it's not an arcane spell.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_BarbarianHP" name="Tailwind of the Hardy">
+      <description>
+        <text lang="en">All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 1 every time they gain a level in that class.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Bludgeoning" name="Crashing Tailwind">
+      <description>
+        <text lang="en">All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with bludgeoning weapons.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_BonusDmgBows" name="Tailwind of the Arrows">
+      <description>
+        <text lang="en">All ranged attacks made by your party members when using a bow gain a +1 bonus on attack and damage rolls. This bonus increases by 1 for every other bow-wielding party member attacking the same target, up to a maximum of +3.\nIn addition, all party members obtain the Point Blank Shot, Precise Shot, and Rapid Shot feats.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Dwarven" name="Tailwind of the Bearded">
+      <description>
+        <text lang="en">Each dwarf in your party gains a +1 bonus to Constitution ability score, including themselves. \nIn addition, whenever a dwarf hits with a Dwarven War Axe or Dwarven Urgrosh, they deal an additional 1d6 additional damage, this damage is multipled on a critical hit.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Acid" name="Caustic Tailwind">
+      <description>
+        <text lang="en">All acid damage dealt by your party members is increased by 25%. \nIn addition all party members gain the ability to throw Acid Bombs like an alchemist an unlimited amount of times.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Cold" name="Frigid Tailwind">
+      <description>
+        <text lang="en">All cold damage dealt by your party members is increased by 25%. \nIn addition all enemies within 10 feet of any party member are affected by difficult terrain and have a -1 to reflex saves, this penalty increases by 1 every 5 character levels.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Electric" name="Sparkling Tailwind">
+      <description>
+        <text lang="en">All electricity damage dealt by your party members is increased by 25%.\nIn addition you can cast Call Lighting as a swift action.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Fire" name="Searing Tailwind">
+      <description>
+        <text lang="en">All fire damage dealt by your party members is increased by 25%. \nIn addition all party members gain the ability to cast Fire Bolt as if they had the Fire Domain an unlimited amount of times.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Sonic" name="Howling Tailwind">
+      <description>
+        <text lang="en">All sonic damage dealt by your party members is increased by 50%.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Elven" name="Tailwind of Elven Nimbleness">
+      <description>
+        <text lang="en">All elves in your party gain a bonus on initiative rolls equal to their character level.\nIn addition, all Elven Curved Blades have their critical hit range increased by one.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Exotic" name="Whimsical Tailwind">
+      <description>
+        <text lang="en">When wielded by your party members, all exotic weapons deal damage using the damage die of the next highest category (for example, a d10 becomes a 2d8).\nIn addition all party members are proficiant in all exotic weapons.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Rogues" name="Impervious Tailwind">
+      <description>
+        <text lang="en">All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.\nIn addition, every time they are hit with an attack they heal equal to their level in this class.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_Slashing" name="Slashing Tailwind">
+      <description>
+        <text lang="en">All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with slashing weapons.</text>
+      </description>
+    </Patch>
+    <Patch key="dungeonBoon_UnarmedStrikes" name="Tailwind of Fists">
+      <description>
+        <text lang="en">Unarmed strikes made by your party members gain a +1 bonus on attack rolls and deal one additional die of the same type as the primary one (1d6 becomes 2d6, 2d6 becomes 3d6).\nIn addition all unarmed attacks deal damage using the damage die of the next highest category (For example d10 becomes a 2d8).</text>
+      </description>
+    </Patch>
+  </Patches>
+  <Enhancements>
+  </Enhancements>
+</Collection>

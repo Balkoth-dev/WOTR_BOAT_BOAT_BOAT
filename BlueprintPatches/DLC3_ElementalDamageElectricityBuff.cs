@@ -23,7 +23,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElementalDamageElectricityBuff
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -50,13 +50,13 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Helpers.AddBlueprint(callLightningSwift, callLightningSwift.AssetGuid);
 
                 var dungeonBoon_Electric = BlueprintTool.Get<BlueprintDungeonBoon>("c955ab1f11c646fc8bbb00248040024f");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Electric.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Electric"))
                 {
                     return;
                 }
                 var dLC3_ElementalDamageElectricityBuff = BlueprintTool.Get<BlueprintBuff>("84420fb8d0034378b69ba7e912d1ff15");
 
-                var newDescription = "All electricity damage dealt by your party members is increased by 25%.\nIn addition you can cast Call Lighting as a swift action.";
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Electric");
 
                 dLC3_ElementalDamageElectricityBuff.AddComponent<AddFacts>(c =>
                 {

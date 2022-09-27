@@ -111,7 +111,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Methods
         {
             try
             {
-                if ((Game.Instance == null || Game.Instance.CurrentMode != GameModeType.Default) || !Settings.Settings.GetSetting<bool>("deadisdead"))
+                if ((Game.Instance == null || Game.Instance.CurrentMode != GameModeType.Default) || !Settings.Settings.GetSetting<bool>("deadisdeadtoggle"))
             {
                 return;
             }

@@ -1,8 +1,10 @@
 ﻿using Kingmaker;
+using Kingmaker.Controllers.Units;
 using Kingmaker.Dungeon;
 using Kingmaker.Dungeon.Blueprints;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.GameModes;
+using Kingmaker.UnitLogic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -61,6 +63,15 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
         {
             if (Game.Instance.CurrentlyLoadedArea != BlueprintDungeonRoot.Instance.Port)
                 Game.Instance.LoadArea(BlueprintDungeonRoot.Instance.Port.DefaultPreset.EnterPoint, AutoSaveMode.None);
+        }
+        public static void StartOver()
+        {
+            UnitLifeController.SetLifeState(Game.Instance.Player.MainCharacter, UnitLifeState.Dead);
+        }
+        public static void SaveAndExit()
+        {
+            Game.Instance.SaveGame(Game.Instance.SaveManager.GetNextAutoslot(), null);
+            Game.Instance.ResetToMainMenu();
         }
     }
 }

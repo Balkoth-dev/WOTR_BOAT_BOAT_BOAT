@@ -95,7 +95,7 @@ namespace WOTR_BOAT_BOAT_BOAT
 
         public static void NoShame()
         {
-            if (WOTR_BOAT_BOAT_BOAT.Settings.Settings.GetSetting<bool>("noshame"))
+            if (WOTR_BOAT_BOAT_BOAT.Settings.Settings.GetSetting<bool>("noshametoggle"))
             {
                 Game.Instance.Player.DungeonState.Statistic.DelveNumber = 0;
             }
@@ -125,17 +125,6 @@ namespace WOTR_BOAT_BOAT_BOAT
         }
         static void OnUpdate(UnityModManager.ModEntry modEntry, float delta)
         {
-#if DEBUG
-            if (Input.GetKeyDown(KeyCode.C) && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
-            {
-                UnitLifeController.SetLifeState(Game.Instance.Player.MainCharacter, UnitLifeState.Dead);
-            }
-#endif
-            if (Input.GetKeyDown(KeyCode.S) && (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)))
-            {
-                Game.Instance.SaveGame(Game.Instance.SaveManager.GetNextAutoslot(), null);
-                Game.Instance.ResetToMainMenu();
-            }
             DeadIsDead.SaveGameWhenDeath();
         }
 

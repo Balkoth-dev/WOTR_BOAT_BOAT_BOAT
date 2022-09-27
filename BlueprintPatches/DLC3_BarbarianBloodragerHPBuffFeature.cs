@@ -23,7 +23,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 {
     class DLC3_BarbarianBloodragerHPBuffFeature
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -65,7 +65,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 Helpers.AddBlueprint(fastHealingBarbBuff, fastHealingBarbBuff.AssetGuid);
 
                 var dungeonBoon_BarbarianHP = BlueprintTool.Get<BlueprintDungeonBoon>("e27cec242d6b4f8299126c9abe62505e");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_BarbarianHP.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_BarbarianHP"))
                 {
                     return;
                 }
@@ -80,7 +80,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                         v.m_Archetype = elementalRampagerArchetype;
                     }
                 }
-                var newDescription = "All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 1 every time they gain a level in that class.";
+
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_BarbarianHP");
 
                 dLC3_BarbarianBloodragerHPBuffFeature.m_Description = Helpers.CreateString(dLC3_BarbarianBloodragerHPBuffFeature + ".Description", newDescription);
                 dungeonBoon_BarbarianHP.m_Description = Helpers.CreateString(dungeonBoon_BarbarianHP + ".Description", newDescription);

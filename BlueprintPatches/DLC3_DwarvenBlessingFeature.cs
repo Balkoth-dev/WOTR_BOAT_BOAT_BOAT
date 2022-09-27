@@ -33,7 +33,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_DwarvenBlessingFeature
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -52,7 +52,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             private static void DLC3_DwarvenBlessingFeature_Patch()
             {
                 var dungeonBoon_Dwarven = BlueprintTool.Get<BlueprintDungeonBoon>("16e92f99e49143b3afde282bb8b94a7a");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Dwarven.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Dwarven"))
                 {
                     return;
                 }
@@ -61,7 +61,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dwarvenWaraxe = BlueprintTool.Get<BlueprintWeaponType>("a6925f5f897801449a648d865637e5a0").ToReference<BlueprintWeaponTypeReference>();
                 var dwarvenUrgrosh = BlueprintTool.Get<BlueprintWeaponType>("0ec97c08fdf87e44f8f16ba87b511743").ToReference<BlueprintWeaponTypeReference>(); ;
 
-                var newDescription = "Each dwarf in your party gains a +1 bonus to Constitution ability score, including themselves. \nIn addition, whenever a dwarf hits with a Dwarven War Axe or Dwarven Urgrosh, they deal an additional 1d6 additional damage, this damage is multipled on a critical hit.";
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Dwarven");
 
                 var warAxeDamage = Helpers.Create<ContextActionDealDamage>(c =>
                 {

@@ -7,14 +7,17 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Xml.Linq;
 using UnityEngine;
 using static UnityModManagerNet.UnityModManager;
+using static WOTR_BOAT_BOAT_BOAT.Settings.BlueprintsCache_Postfix;
 
 namespace WOTR_BOAT_BOAT_BOAT.Utilities
 {
     class AssetLoader
     {
         public static ModEntry ModEntry;
+        protected static string lang = Settings.Settings.GetSetting<string>("lang");
         public static Sprite LoadInternal(string folder, string file, int width = 64, int height = 64)
         {
             return Image2Sprite.Create($"{ModEntry.Path}Assets{Path.DirectorySeparatorChar}{folder}{Path.DirectorySeparatorChar}{file}",width,height);
@@ -30,6 +33,53 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                 _ = texture.LoadImage(bytes);
                 var sprite = Sprite.Create(texture, new Rect(0, 0, height, width), new Vector2(0, 0));
                 return sprite;
+            }
+        }
+        public static List<BlueprintSettingsPatchInfo> GetElements(string type, string folder = "XML", string file = "Localizations.xml")
+        {
+            try
+            {
+                var list = new List<BlueprintSettingsPatchInfo>();
+
+                XElement root = XElement.Load($"{ModEntry.Path}Assets{Path.DirectorySeparatorChar}{folder}{Path.DirectorySeparatorChar}{file}");
+
+                var collection = root.Descendants().Where(x => x.Name == type);
+                foreach(var el in collection)
+                {                    
+                    list.Add(new BlueprintSettingsPatchInfo { key = el.Attribute("key").Value, description = GetLocalizationElement("description", el.Attribute("key").Value), name = el.Attribute("name").Value });
+                }
+
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Main.Log(ex.Message);
+                return null;
+            }
+        }
+        public static string GetLocalizationElement(string type, string key, string folder = "XML", string file = "Localizations.xml")
+        {
+            try
+            {
+                XElement root = XElement.Load($"{ModEntry.Path}Assets{Path.DirectorySeparatorChar}{folder}{Path.DirectorySeparatorChar}{file}");
+
+                var element = root.Descendants()
+                        .FirstOrDefault(x => (string)x.Attribute("key") == key);
+
+                var langElement = element.Elements().Where(x => x.Name == type).FirstOrDefault();
+
+                var langElementTextElement = langElement.Descendants().FirstOrDefault(x => x.Attribute("lang").Value == lang);
+
+                if (langElementTextElement == null)
+                {
+                    langElementTextElement = langElement.Descendants().FirstOrDefault(x => x.Attribute("lang").Value == "en");
+                }
+                return langElementTextElement.Value;
+            }
+            catch(Exception ex)
+            {
+                Main.Log(ex.Message);
+                return null;
             }
         }
     }

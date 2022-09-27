@@ -30,7 +30,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_SlasingWeaponsLevelBuff
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -49,14 +49,14 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             private static void DLC3_SlasingWeaponsLevelBuff_Patch()
             {
                 var dungeonBoon_Slashing = BlueprintTool.Get<BlueprintDungeonBoon>("3aeef1ddb73f4f12937c42eb046f90d3");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Slashing.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Slashing"))
                 {
                     return;
                 }
                 var dLC3_SlasingWeaponsLevelBuff = BlueprintTool.Get<BlueprintBuff>("36f34c2f069540fda1d9d2d5b03f5c38");
                 var dLC3_SlashingBludgeoningLevelRankGetter = BlueprintTool.Get<BlueprintUnitProperty>("54a35f59c7a74a39b4ad214359269fb7");
 
-                var newDescription = "All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with slashing weapons.";
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Slashing");
 
                 dLC3_SlashingBludgeoningLevelRankGetter.EditComponent<ComplexPropertyGetter>(c => { c.Denominator = 2; });
 

@@ -35,7 +35,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
         private static void DLC3_ArmorPenaltyReduceBuff_Patch()
         {
             var dungeonBoon_BonusDmgBows = BlueprintTool.Get<BlueprintDungeonBoon>("088003e6159b40a09a05233603ac5d15");
-            if (!Settings.Settings.GetSetting<bool>(dungeonBoon_BonusDmgBows.Name))
+            if (!Settings.Settings.GetSetting<bool>("dungeonBoon_BonusDmgBows"))
             {
                 return;
             }
@@ -49,8 +49,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             dungeonBoon_BonusDmgBows.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = preciseShot; });
             dungeonBoon_BonusDmgBows.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = rapidShotFeature; });
 
-            var newDescription = "All ranged attacks made by your party members when using a bow gain a +1 bonus on attack and damage rolls. This bonus increases by 1 for every other bow-wielding party member attacking the same target, up to a maximum of +3. \n" +
-                                 "In addition, all party members obtain the Point Blank Shot, Precise Shot, and Rapid Shot feats.";
+            var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_BonusDmgBows");
 
             dLC3_BonusAttackDamageBowsBuff.m_Description = Helpers.CreateString(dLC3_BonusAttackDamageBowsBuff + ".Description", newDescription);
             dungeonBoon_BonusDmgBows.m_Description = Helpers.CreateString(dungeonBoon_BonusDmgBows + ".Description", newDescription);

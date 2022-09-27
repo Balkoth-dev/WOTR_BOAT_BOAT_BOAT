@@ -20,7 +20,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElementalDamageFireBuff
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -46,14 +46,13 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Helpers.AddBlueprint(fireDomainBaseAbilityInfinite, fireDomainBaseAbilityInfinite.AssetGuid);
 
                 var dungeonBoon_Fire = BlueprintTool.Get<BlueprintDungeonBoon>("7e155f0848db47e89bb76dce6d4e0939");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Fire.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Fire"))
                 {
                     return;
                 }
                 var dLC3_ElementalDamageFireBuff = BlueprintTool.Get<BlueprintBuff>("a8ff427196b34707bd0e8c54bb852d32");
 
-                var newDescription = "All fire damage dealt by your party members is increased by 25%. \nIn addition all party members gain the ability to cast Fire Bolt as if they had the Fire Domain an unlimited amount of times.";
-
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Fire");
 
                 dLC3_ElementalDamageFireBuff.AddComponent<AddFacts>(c =>
                 {

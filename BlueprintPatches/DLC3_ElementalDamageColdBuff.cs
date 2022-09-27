@@ -25,7 +25,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ElementalDamageColdBuff
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -67,7 +67,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 Helpers.AddBlueprint(coldArea, coldArea.AssetGuid);
 
                 var dungeonBoon_Cold = BlueprintTool.Get<BlueprintDungeonBoon>("7f2e836a40a94833ba75a82415712d17");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Cold.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Cold"))
                 {
                     return;
                 }
@@ -77,7 +77,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                     c.m_AreaEffect = coldArea.ToReference<BlueprintAbilityAreaEffectReference>();
                 });
 
-                var newDescription = "All cold damage dealt by your party members is increased by 25%. \nIn addition all enemies within 10 feet of any party member are affected by difficult terrain and have a -1 to reflex saves, this penalty increases by 1 every 5 character levels.";
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Cold");
 
                 dLC3_ElementalDamageColdBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageColdBuff + ".Description", newDescription);
                 dungeonBoon_Cold.m_Description = Helpers.CreateString(dungeonBoon_Cold + ".Description", newDescription);

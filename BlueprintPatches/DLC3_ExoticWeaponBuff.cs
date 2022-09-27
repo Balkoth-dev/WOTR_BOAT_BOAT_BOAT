@@ -30,7 +30,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 {
     class DLC3_ExoticWeaponBuff
     {
-        [HarmonyPriority(Priority.First)]
+        [HarmonyPriority(Priority.Last)]
         [HarmonyPatch(typeof(BlueprintsCache), "Init")]
         static class BlueprintsCache_Init_Patch
         {
@@ -49,7 +49,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             private static void DLC3_ExoticWeaponBuff_Patch()
             {
                 var dungeonBoon_Exotic = BlueprintTool.Get<BlueprintDungeonBoon>("89987c26492844a2a07afc2715474b1b");
-                if (!Settings.Settings.GetSetting<bool>(dungeonBoon_Exotic.Name))
+                if (!Settings.Settings.GetSetting<bool>("dungeonBoon_Exotic"))
                 {
                     return;
                 }
@@ -72,7 +72,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var urgroshProficiency = BlueprintTool.Get<BlueprintFeature>("d24f7545b1aa3b34e8216f8cb3140563").ToReference<BlueprintFeatureReference>();
                 var nunchakuProficiency = BlueprintTool.Get<BlueprintFeature>("097c1ceaf18f9a045b5969bad82b1fa4").ToReference<BlueprintFeatureReference>();
 
-                var newDescription = "When wielded by your party members, all exotic weapons deal damage using the damage die of the next highest category (for example, a d10 becomes a 2d8).\nIn addition all party members are proficiant in all exotic weapons.";
+                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Exotic");
 
                 dungeonBoon_Exotic.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = bastardSwordProficiency; });
                 dungeonBoon_Exotic.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = doubleAxeProficiency; });

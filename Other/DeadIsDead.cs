@@ -25,9 +25,9 @@ namespace WOTR_BOAT_BOAT_BOAT.Methods
         private static bool PartyDeathStateChanged()
         {
             var mc = Game.Instance.Player.MainCharacter;
-            var characterIsDead = mc.Value.State.IsDead;
             if (party.ContainsKey(Game.Instance.Player.MainCharacter))
             {
+                var characterIsDead = mc.Value.State.IsDead;
                 if (characterIsDead)
                 {
                     if (party[mc] != characterIsDead)
@@ -45,7 +45,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Methods
             {
                 if (p != mc)
                 {
-                    characterIsDead = p.Value.State.IsFinallyDead;
+                    var characterIsDead = p.Value.State.IsFinallyDead;
                     if (party.ContainsKey(p))
                     {
                         if (characterIsDead)

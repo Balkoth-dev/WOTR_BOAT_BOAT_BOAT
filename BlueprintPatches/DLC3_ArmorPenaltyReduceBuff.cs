@@ -39,7 +39,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 var dungeonBoon_ArcaneArmor = BlueprintTool.Get<BlueprintDungeonBoon>("e27cec242d6b4f8299126c9abe62505e");
                 if(!Settings.Settings.GetSetting<bool>("dungeonBoon_ArcaneArmor"))
                 {
-                    Main.Log("Arcane Armor Settings Not Applied");
                     return;
                 }
                 var dLC3_ArmorPenaltyReduceBuff = BlueprintTool.Get<BlueprintBuff>("1c8d105f94f94017a119719a5623fccd");

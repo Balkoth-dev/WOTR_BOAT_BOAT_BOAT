@@ -35,7 +35,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                 return sprite;
             }
         }
-        public static List<BlueprintSettingsPatchInfo> GetElements(string type, string folder = "XML", string file = "Localizations.xml")
+        public static List<BlueprintSettingsPatchInfo> GetElements(string type, string folder = "XML", string file = "Strings.xml")
         {
             try
             {
@@ -57,7 +57,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                 return null;
             }
         }
-        public static string GetLocalizationElement(string type, string key, string folder = "XML", string file = "Localizations.xml")
+        public static string GetLocalizationElement(string type, string key, string folder = "XML", string file = "Strings.xml")
         {
             try
             {
@@ -74,7 +74,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                 {
                     langElementTextElement = langElement.Descendants().FirstOrDefault(x => x.Attribute("lang").Value == "en");
                 }
-                return langElementTextElement.Value;
+                var str = langElementTextElement.Value.Replace(@"\n", "" + Environment.NewLine).ToString();
+                return str;
             }
             catch(Exception ex)
             {

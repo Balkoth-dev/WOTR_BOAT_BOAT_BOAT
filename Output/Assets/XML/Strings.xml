@@ -52,7 +52,7 @@
           <text lang="en">Dead Is Dead</text>
         </description>
         <longDescription key="deadisdeadtoggle-long-desc">
-          <text lang="en">When a party member dies, your save is copied to a backup file called \"BBB_Backup.bak\" and then deleted.</text>
+          <text lang="en">When a party member dies, your save is copied to a backup file called "BBB_Backup.bak" and then deleted.</text>
         </longDescription>
       </toggle>
       <toggle key="cheevostoggle">
@@ -237,11 +237,11 @@
         <text lang="en">Arcane spell failure chance for wearing armor is reduced by 20% for you and your party members. When a spell is cast it does bonus damage equal to 3% for each 1% of their arcane spell failure, before reductions, even if it's not an arcane spell.</text>
       </description>
     </Patch>
-    <Patch key="dungeonBoon_BarbarianHP" name="Tailwind of the Hardy">
+    <DisabledPatch key="dungeonBoon_BarbarianHP" name="Tailwind of the Hardy">
       <description>
         <text lang="en">All barbarians, bloodragers, skalds with the battle scion archetype, and druids with the elemental rampager archetype in your party gain an additional +5 hit points and Fast Healing 1 every time they gain a level in that class.</text>
       </description>
-    </Patch>
+    </DisabledPatch>
     <Patch key="dungeonBoon_Bludgeoning" name="Crashing Tailwind">
       <description>
         <text lang="en">All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with bludgeoning weapons.</text>

@@ -22,16 +22,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
         public static List<BlueprintDungeonBoon> editedBoons = new List<BlueprintDungeonBoon>();
         public static T GetSetting<T>(string key)
         {
-            try
-            {
-                Regex rgx = new Regex("[^a-z0-9-]");
-                var KeyName = rgx.Replace(key.ToLower(), "");
-                return ModMenu.ModMenu.GetSettingValue<T>(GetKey(KeyName));
-            }
-            catch(Exception ex)
-            {
-                return default(T);
-            }
+                return ModMenu.ModMenu.GetSettingValue<T>(GetKey(key));
         }
         private static string GetKey(string partialKey)
         {
@@ -56,7 +47,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
         {
             if (Initialized) return;
             Initialized = true;
-
+            
             SettingsUI.Initialize();
             Main.Log("Settings Initialized");
         }

@@ -64,9 +64,11 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
 
                 Helpers.AddBlueprint(fastHealingBarbBuff, fastHealingBarbBuff.AssetGuid);
 
-                var dungeonBoon_BarbarianHP = BlueprintTool.Get<BlueprintDungeonBoon>("e27cec242d6b4f8299126c9abe62505e");
+                var dungeonBoon_BarbarianHP = BlueprintTool.Get<BlueprintDungeonBoon>("6fb93a3229404fe2896b94fe116c82e2");
+                return; //Temp disabled while investigating issues with this blueprint.
                 if (!Settings.Settings.GetSetting<bool>("dungeonBoon_BarbarianHP"))
                 {
+                    Main.Log("Arcane Armor Settings Not Applied");
                     return;
                 }
                 var primalDruidArchetype = BlueprintTool.Get<BlueprintArchetype>("c1c86e2997fd4257a13ef5601b5dc6dd").ToReference<BlueprintArchetypeReference>();
@@ -92,14 +94,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                     fastHealingBarbBuff.ToReference<BlueprintUnitFactReference>()
                 };
                 });
-
-                //Weird issue where the description doesn't update in the selection screen. Readding it should fix the issue.
-                var dungeonRoot = BlueprintTool.Get<BlueprintDungeonRoot>("096f36d4e55b49129ddd2211b2c50513");
-                var dungeonBoonRef = new Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference() { deserializedGuid = dungeonBoon_BarbarianHP.AssetGuid };
-                dungeonRoot.m_Boons = dungeonRoot.m_Boons.RemoveFromArray(dungeonBoonRef);
-                dungeonRoot.m_Boons = dungeonRoot.m_Boons.AppendToArray(dungeonBoonRef);
-                
-
             }
         }
     }

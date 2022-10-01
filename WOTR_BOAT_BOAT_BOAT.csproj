@@ -158,6 +158,7 @@
     <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="BlueprintCore\resources\encyclopedia.json" />
     <None Include="Output\LocalizedStrings.json" />
     <None Include="Output\Info.json" />
     <None Include="packages.config" />

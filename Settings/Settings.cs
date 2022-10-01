@@ -51,6 +51,24 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
             private static readonly SettingsBuilder sb = SettingsBuilder.New(RootKey, Helpers.CreateString(GetKey("title"), "BOAT BOAT BOAT"));
             private static readonly Kingmaker.Dungeon.Blueprints.BlueprintDungeonBoonReference[] dungeonBoons = BlueprintTool.Get<BlueprintDungeonRoot>("096f36d4e55b49129ddd2211b2c50513").m_Boons;
             private static readonly List<LocalizedString> boons = new List<LocalizedString>();
+            private static readonly List<string> patchBoons = new List<string>() 
+            {
+                "DungeonBoon_ArcaneArmor",
+                "DungeonBoon_BarbarianHP",
+                "DungeonBoon_Bludgeoning",
+                "DungeonBoon_BonusDmgBows",
+                "DungeonBoon_Dwarven",
+                "DungeonBoon_Acid",
+                "DungeonBoon_Cold",
+                "DungeonBoon_Electric",
+                "DungeonBoon_Fire",
+                "DungeonBoon_Sonic",
+                "DungeonBoon_Elven",
+                "DungeonBoon_Exotic",
+                "DungeonBoon_Rogues",
+                "DungeonBoon_Slashing",
+                "DungeonBoon_UnarmedStrikes"
+            };
             public static void Initialize()
             {
                 sb.AddImage(AssetLoader.LoadInternal("Settings", "boatboatboat.png",512,212),212);
@@ -80,7 +98,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
 
                 CreateSubHeader("misccheatssubheader");
                 CreateButton("showmapbutton", () => Cheats.RunCheat(() => DungeonController.ShowMapCheat()));
-/*
+
                 foreach(var v in dungeonBoons)
                 {
                     boons.Add(Helpers.CreateString(GetKey(v.Guid.ToString()), BlueprintTool.Get<BlueprintDungeonBoon>(v.deserializedGuid.ToString()).Name));
@@ -89,11 +107,11 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
                 CreateDropdownButton("addBoon", SetBoonIndexAndApplyBoon,boons);
                 
                 CreateSubHeader("patchessubheader");
-                foreach(var patch in AssetLoader.GetElements("Patch"))
+                foreach(var boonRef in patchBoons)
                 {
-                    CreatePatchToggle(patch.key,patch.name,patch.description,true);
+                    CreatePatchToggle(boonRef, true);
                 }
-*/
+
                 ModMenu.ModMenu.AddSettings(sb);
             }
             private static void CreateSubHeader(string key)
@@ -107,12 +125,16 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
                     .OnValueChanged(OnToggle)
                     .WithLongDescription(Helpers.CreateString(GetKey(key + "-long-desc"), Helpers.GetLocalizationElement("longDescription", key))));
             }
-            private static void CreatePatchToggle(string key, string name, string longDescription, bool defaultBool = false)
+            private static void CreatePatchToggle(string key, bool defaultBool = false)
             {
-                sb.AddToggle(Toggle.New(GetKey(key), defaultValue: defaultBool, Helpers.CreateString(GetKey(key + "-desc"), name))
-                    .ShowVisualConnection()
-                    .OnValueChanged(OnToggle)
-                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-long-desc"), longDescription)));
+                if (Helpers.GetLocalizationElement("Name", key,".") != null)
+                {
+                    sb.AddToggle(Toggle.New(GetKey(key), defaultValue: defaultBool, Helpers.CreateString(GetKey(key + "-desc"), Helpers.GetLocalizationElement("Name", key,".")))
+                        .ShowVisualConnection()
+                        .OnValueChanged(OnToggle)
+                        .WithLongDescription(Helpers.CreateString(GetKey(key + "-long-desc"), Helpers.GetLocalizationElement("Description", key, "."))));
+                    Main.Log(GetKey(key) + " Created");
+                }
             }
 
             private static void CreateButton(string key, Action action)

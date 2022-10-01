@@ -56,7 +56,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 }
                 var dLC3_UnramedAttacksBuff = BlueprintTool.Get<BlueprintBuff>("b5dd5a68158449e9906285be5ff6bdd7");
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_UnarmedStrikes");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_UnarmedStrikes", ".");
 
                 dLC3_UnramedAttacksBuff.GetComponent<AdditionalDiceOnAttack>().DamageType.Physical.Form = Kingmaker.Enums.Damage.PhysicalDamageForm.Bludgeoning;
                 dLC3_UnramedAttacksBuff.AddComponent<IncreaseDiceSizeOnAttack>(c => { c.CheckWeaponCategories = true; c.Categories = new WeaponCategory[1]; c.Categories = c.Categories.AppendToArray(WeaponCategory.UnarmedStrike); c.CheckWeaponSubCategories = false; c.SubCategories = new WeaponSubCategory[1]; c.SubCategories = c.SubCategories.AppendToArray(WeaponSubCategory.Disabled); c.UseContextBonus = false; c.AdditionalSize = 1; });

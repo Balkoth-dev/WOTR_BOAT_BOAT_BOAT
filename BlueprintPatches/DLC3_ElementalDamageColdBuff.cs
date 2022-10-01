@@ -77,7 +77,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                     c.m_AreaEffect = coldArea.ToReference<BlueprintAbilityAreaEffectReference>();
                 });
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Cold");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_Cold", ".");
 
                 dLC3_ElementalDamageColdBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageColdBuff + ".Description", newDescription);
                 dungeonBoon_Cold.m_Description = Helpers.CreateString(dungeonBoon_Cold + ".Description", newDescription);

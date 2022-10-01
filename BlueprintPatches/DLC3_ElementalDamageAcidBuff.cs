@@ -53,7 +53,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
 
                 var dLC3_ElementalDamageAcidBuff = BlueprintTool.Get<BlueprintBuff>("ef6c34c686854e219a465b152c542552");
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Acid");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_Acid", ".");
 
                 dLC3_ElementalDamageAcidBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageAcidBuff + ".Description", newDescription);
                 dungeonBoon_Acid.m_Description = Helpers.CreateString(dungeonBoon_Acid + ".Description", newDescription);

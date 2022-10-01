@@ -43,7 +43,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 }
                 var dLC3_ArmorPenaltyReduceBuff = BlueprintTool.Get<BlueprintBuff>("1c8d105f94f94017a119719a5623fccd");
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_ArcaneArmor");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_ArcaneArmor",".");
 
                 dLC3_ArmorPenaltyReduceBuff.m_Description = Helpers.CreateString(dLC3_ArmorPenaltyReduceBuff + ".Description", newDescription);
                 dungeonBoon_ArcaneArmor.m_Description = Helpers.CreateString(dLC3_ArmorPenaltyReduceBuff + ".Description", newDescription);

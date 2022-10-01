@@ -158,7 +158,7 @@
     <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="BlueprintCore\resources\encyclopedia.json" />
+    <EmbeddedResource Include="BlueprintCore\resources\encyclopedia.json" ><LogicalName>BlueprintCore.resources.encyclopedia.json</LogicalName></EmbeddedResource>
     <None Include="Output\LocalizedStrings.json" />
     <None Include="Output\Info.json" />
     <None Include="packages.config" />

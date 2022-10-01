@@ -65,10 +65,10 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 Helpers.AddBlueprint(fastHealingBarbBuff, fastHealingBarbBuff.AssetGuid);
 
                 var dungeonBoon_BarbarianHP = BlueprintTool.Get<BlueprintDungeonBoon>("6fb93a3229404fe2896b94fe116c82e2");
-                return; //Temp disabled while investigating issues with this blueprint.
+
                 if (!Settings.Settings.GetSetting<bool>("dungeonBoon_BarbarianHP"))
                 {
-                    Main.Log("Arcane Armor Settings Not Applied");
+                    Main.Log("Hardy Tailwind Settings Not Applied");
                     return;
                 }
                 var primalDruidArchetype = BlueprintTool.Get<BlueprintArchetype>("c1c86e2997fd4257a13ef5601b5dc6dd").ToReference<BlueprintArchetypeReference>();
@@ -83,7 +83,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                     }
                 }
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_BarbarianHP");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_BarbarianHP", ".");
 
                 dLC3_BarbarianBloodragerHPBuffFeature.m_Description = Helpers.CreateString(dLC3_BarbarianBloodragerHPBuffFeature + ".Description", newDescription);
                 dungeonBoon_BarbarianHP.m_Description = Helpers.CreateString(dungeonBoon_BarbarianHP + ".Description", newDescription);

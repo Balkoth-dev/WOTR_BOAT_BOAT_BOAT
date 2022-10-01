@@ -52,7 +52,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 }
                 var dLC3_ElementalDamageFireBuff = BlueprintTool.Get<BlueprintBuff>("a8ff427196b34707bd0e8c54bb852d32");
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Fire");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_Fire", ".");
 
                 dLC3_ElementalDamageFireBuff.AddComponent<AddFacts>(c =>
                 {

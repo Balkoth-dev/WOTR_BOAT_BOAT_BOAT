@@ -46,7 +46,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 }
                 var dLC3_ElementalDamageSonicBuff = BlueprintTool.Get<BlueprintBuff>("f7e94934bcda4b16b9d6d24e0b745283");
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Sonic");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_Sonic", ".");
                 dLC3_ElementalDamageSonicBuff.EditComponent<EnergyDamageBonus>(c => { c.Multiplier = (float)1.5; });
 
                 dLC3_ElementalDamageSonicBuff.m_Description = Helpers.CreateString(dLC3_ElementalDamageSonicBuff + ".Description", newDescription);

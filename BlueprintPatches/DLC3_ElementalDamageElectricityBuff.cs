@@ -56,7 +56,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 }
                 var dLC3_ElementalDamageElectricityBuff = BlueprintTool.Get<BlueprintBuff>("84420fb8d0034378b69ba7e912d1ff15");
 
-                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Electric");
+                var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_Electric", ".");
 
                 dLC3_ElementalDamageElectricityBuff.AddComponent<AddFacts>(c =>
                 {

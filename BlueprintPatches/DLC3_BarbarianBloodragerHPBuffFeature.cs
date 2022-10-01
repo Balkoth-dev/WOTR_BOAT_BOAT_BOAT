@@ -83,7 +83,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                     }
                 }
 
-                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_BarbarianHP");
+                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_BarbarianHP");
 
                 dLC3_BarbarianBloodragerHPBuffFeature.m_Description = Helpers.CreateString(dLC3_BarbarianBloodragerHPBuffFeature + ".Description", newDescription);
                 dungeonBoon_BarbarianHP.m_Description = Helpers.CreateString(dungeonBoon_BarbarianHP + ".Description", newDescription);

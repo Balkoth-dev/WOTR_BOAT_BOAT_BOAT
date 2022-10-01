@@ -56,7 +56,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dLC3_SlasingWeaponsLevelBuff = BlueprintTool.Get<BlueprintBuff>("36f34c2f069540fda1d9d2d5b03f5c38");
                 var dLC3_SlashingBludgeoningLevelRankGetter = BlueprintTool.Get<BlueprintUnitProperty>("54a35f59c7a74a39b4ad214359269fb7");
 
-                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Slashing");
+                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Slashing");
 
                 dLC3_SlashingBludgeoningLevelRankGetter.EditComponent<ComplexPropertyGetter>(c => { c.Denominator = 2; });
 

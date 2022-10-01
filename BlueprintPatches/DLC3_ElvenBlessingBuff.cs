@@ -62,7 +62,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 x.IncludeAttackTypes = x.IncludeAttackTypes.AppendToArray(Kingmaker.RuleSystem.AttackType.Melee);
 
                 dLC3_ElvenBlessingBuff.AddComponent<WeaponCriticalEdgeIncreaseStackable>(c => { c = x; });
-                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Elven");
+                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Elven");
 
                 dLC3_ElvenBlessingBuff.m_Description = Helpers.CreateString(dLC3_ElvenBlessingBuff + ".Description", newDescription);
                 dungeonBoon_Elven.m_Description = Helpers.CreateString(dungeonBoon_Elven + ".Description", newDescription);

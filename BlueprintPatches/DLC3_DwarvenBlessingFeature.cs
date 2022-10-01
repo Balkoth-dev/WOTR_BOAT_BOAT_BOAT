@@ -61,7 +61,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dwarvenWaraxe = BlueprintTool.Get<BlueprintWeaponType>("a6925f5f897801449a648d865637e5a0").ToReference<BlueprintWeaponTypeReference>();
                 var dwarvenUrgrosh = BlueprintTool.Get<BlueprintWeaponType>("0ec97c08fdf87e44f8f16ba87b511743").ToReference<BlueprintWeaponTypeReference>(); ;
 
-                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Dwarven");
+                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Dwarven");
 
                 var warAxeDamage = Helpers.Create<ContextActionDealDamage>(c =>
                 {

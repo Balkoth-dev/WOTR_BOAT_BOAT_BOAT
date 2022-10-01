@@ -107,6 +107,40 @@
             Patch to add new setting type prefabs.
             </summary>
         </member>
+        <member name="M:ModMenu.Settings.KeyBinding.New(System.String,Kingmaker.UI.KeyboardAccess.GameModesGroup,Kingmaker.Localization.LocalizedString)">
+            <inheritdoc cref="M:ModMenu.Settings.KeyBinding.#ctor(System.String,Kingmaker.UI.KeyboardAccess.GameModesGroup,Kingmaker.Localization.LocalizedString)"/>
+        </member>
+        <member name="M:ModMenu.Settings.KeyBinding.SetIsHoldTrigger(System.Boolean)">
+            <summary>
+            If true, the key binding is activated only when held down rather than just pressed.
+            </summary>
+        </member>
+        <member name="M:ModMenu.Settings.KeyBinding.SetPrimaryBinding(UnityEngine.KeyCode,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the default key binding.
+            </summary>
+            
+            <param name="keyCode">Unity's key code for the binding</param>
+            <param name="withCtrl">If true, the binding includes the Ctrl key</param>
+            <param name="withAlt">If true, the binding includes the Alt key</param>
+            <param name="withShift">If true, the binding includes the Shift key</param>
+        </member>
+        <member name="M:ModMenu.Settings.KeyBinding.SetSecondaryBinding(UnityEngine.KeyCode,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            Sets the default alternate binding. This is just a second key combination for the same binding. Ignored if
+            there is no primary binding, see <see cref="M:ModMenu.Settings.KeyBinding.SetPrimaryBinding(UnityEngine.KeyCode,System.Boolean,System.Boolean,System.Boolean)"/>.
+            </summary>
+            
+            <param name="keyCode">Unity's key code for the binding</param>
+            <param name="withCtrl">If true, the binding includes the Ctrl key</param>
+            <param name="withAlt">If true, the binding includes the Alt key</param>
+            <param name="withShift">If true, the binding includes the Shift key</param>
+        </member>
+        <member name="M:ModMenu.Settings.KeyBinding.#ctor(System.String,Kingmaker.UI.KeyboardAccess.GameModesGroup,Kingmaker.Localization.LocalizedString)">
+            <inheritdoc cref="M:ModMenu.Settings.BaseSettingWithValue`4.#ctor(System.String,`0,Kingmaker.Localization.LocalizedString)"/>
+            
+            <param name="gameModesGroup">Indicates in which game modes the key binding functions</param>
+        </member>
         <member name="T:ModMenu.Settings.ModsMenuEntity">
             <summary>
             Class containing patches necessary to inject an additional settings screen into the menu.
@@ -129,13 +163,13 @@
         </member>
         <member name="T:ModMenu.Settings.SettingsBuilder">
             <summary>
-            Builder API for constructing <see cref="!:SettingsGroup"/>.
+            Builder API for constructing settings.
             </summary>
             
             <remarks>
             <para>
             All the <c>AddX</c> methods return <c>this</c> to support builder style method chaining. Once your SettingsGroup
-            is configured add it to the Mods menu page by calling <see cref="!:ModMenu.AddSettings(SettingsGroup)"/>.
+            is configured add it to the Mods menu page by calling <see cref="M:ModMenu.ModMenu.AddSettings(ModMenu.Settings.SettingsBuilder)"/>.
             </para>
             
             <para>
@@ -482,40 +516,6 @@
             </item>
             </list>
             </remarks>
-        </member>
-        <member name="M:ModMenu.Settings.KeyBinding.New(System.String,Kingmaker.UI.KeyboardAccess.GameModesGroup,Kingmaker.Localization.LocalizedString)">
-            <inheritdoc cref="M:ModMenu.Settings.KeyBinding.#ctor(System.String,Kingmaker.UI.KeyboardAccess.GameModesGroup,Kingmaker.Localization.LocalizedString)"/>
-        </member>
-        <member name="M:ModMenu.Settings.KeyBinding.SetIsHoldTrigger(System.Boolean)">
-            <summary>
-            If true, the key binding is activated only when held down rather than just pressed.
-            </summary>
-        </member>
-        <member name="M:ModMenu.Settings.KeyBinding.SetPrimaryBinding(UnityEngine.KeyCode,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Sets the default key binding.
-            </summary>
-            
-            <param name="keyCode">Unity's key code for the binding</param>
-            <param name="withCtrl">If true, the binding includes the Ctrl key</param>
-            <param name="withAlt">If true, the binding includes the Alt key</param>
-            <param name="withShift">If true, the binding includes the Shift key</param>
-        </member>
-        <member name="M:ModMenu.Settings.KeyBinding.SetSecondaryBinding(UnityEngine.KeyCode,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            Sets the default alternate binding. This is just a second key combination for the same binding. Ignored if
-            there is no primary binding, see <see cref="M:ModMenu.Settings.KeyBinding.SetPrimaryBinding(UnityEngine.KeyCode,System.Boolean,System.Boolean,System.Boolean)"/>.
-            </summary>
-            
-            <param name="keyCode">Unity's key code for the binding</param>
-            <param name="withCtrl">If true, the binding includes the Ctrl key</param>
-            <param name="withAlt">If true, the binding includes the Alt key</param>
-            <param name="withShift">If true, the binding includes the Shift key</param>
-        </member>
-        <member name="M:ModMenu.Settings.KeyBinding.#ctor(System.String,Kingmaker.UI.KeyboardAccess.GameModesGroup,Kingmaker.Localization.LocalizedString)">
-            <inheritdoc cref="M:ModMenu.Settings.BaseSettingWithValue`4.#ctor(System.String,`0,Kingmaker.Localization.LocalizedString)"/>
-            
-            <param name="gameModesGroup">Indicates in which game modes the key binding functions</param>
         </member>
     </members>
 </doc>

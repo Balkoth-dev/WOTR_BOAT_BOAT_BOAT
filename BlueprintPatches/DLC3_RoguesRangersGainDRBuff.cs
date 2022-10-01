@@ -51,7 +51,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Patches
                 var dLC3_RoguesRangersGainDRBuff = BlueprintTool.Get<BlueprintBuff>("e9f7b6b787ea4fdaa4bfc928513f8929");
                 var dLC3_RoguesRangersGainDRBuffLevelGetter = BlueprintTool.Get<BlueprintUnitProperty>("2aa73fe91377456b8734ba94a506d541");
 
-                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Rogues");
+                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Rogues");
 
                 var s = Helpers.Create<ContextActionHealTarget>(c =>
                 {

@@ -72,7 +72,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var urgroshProficiency = BlueprintTool.Get<BlueprintFeature>("d24f7545b1aa3b34e8216f8cb3140563").ToReference<BlueprintFeatureReference>();
                 var nunchakuProficiency = BlueprintTool.Get<BlueprintFeature>("097c1ceaf18f9a045b5969bad82b1fa4").ToReference<BlueprintFeatureReference>();
 
-                var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_Exotic");
+                var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_Exotic");
 
                 dungeonBoon_Exotic.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = bastardSwordProficiency; });
                 dungeonBoon_Exotic.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = doubleAxeProficiency; });

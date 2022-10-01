@@ -7,10 +7,12 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml.Linq;
 using UnityEngine;
+using Newtonsoft.Json;
 using static UnityModManagerNet.UnityModManager;
 using static WOTR_BOAT_BOAT_BOAT.Settings.BlueprintsCache_Postfix;
+using Newtonsoft.Json.Linq;
+using BlueprintCore.Utils;
 
 namespace WOTR_BOAT_BOAT_BOAT.Utilities
 {
@@ -33,54 +35,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                 _ = texture.LoadImage(bytes);
                 var sprite = Sprite.Create(texture, new Rect(0, 0, height, width), new Vector2(0, 0));
                 return sprite;
-            }
-        }
-        public static List<BlueprintSettingsPatchInfo> GetElements(string type, string folder = "XML", string file = "Strings.xml")
-        {
-            try
-            {
-                var list = new List<BlueprintSettingsPatchInfo>();
-
-                XElement root = XElement.Load($"{ModEntry.Path}Assets{Path.DirectorySeparatorChar}{folder}{Path.DirectorySeparatorChar}{file}");
-
-                var collection = root.Descendants().Where(x => x.Name == type);
-                foreach(var el in collection)
-                {                    
-                    list.Add(new BlueprintSettingsPatchInfo { key = el.Attribute("key").Value, description = GetLocalizationElement("description", el.Attribute("key").Value), name = el.Attribute("name").Value });
-                }
-
-                return list;
-            }
-            catch (Exception ex)
-            {
-                Main.Log(ex.Message);
-                return null;
-            }
-        }
-        public static string GetLocalizationElement(string type, string key, string folder = "XML", string file = "Strings.xml")
-        {
-            try
-            {
-                XElement root = XElement.Load($"{ModEntry.Path}Assets{Path.DirectorySeparatorChar}{folder}{Path.DirectorySeparatorChar}{file}");
-
-                var element = root.Descendants()
-                        .FirstOrDefault(x => (string)x.Attribute("key") == key);
-
-                var langElement = element.Elements().Where(x => x.Name == type).FirstOrDefault();
-
-                var langElementTextElement = langElement.Descendants().FirstOrDefault(x => x.Attribute("lang").Value == lang);
-
-                if (langElementTextElement == null)
-                {
-                    langElementTextElement = langElement.Descendants().FirstOrDefault(x => x.Attribute("lang").Value == "en");
-                }
-                var str = langElementTextElement.Value.Replace(@"\n", "" + Environment.NewLine).ToString();
-                return str;
-            }
-            catch(Exception ex)
-            {
-                Main.Log(ex.Message);
-                return null;
             }
         }
     }
@@ -181,6 +135,10 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                 throw new InvalidOperationException(
                     $"Failed to fetch blueprint: {nameOrGuid} - {assetId}.\nIs the type correct? {typeof(T)}");
             }
+        }
+        public static string GetLocalizationElement(string name, string key)
+        {
+            return LocalizationTool.GetString(key + "-" + name);
         }
     }
 }

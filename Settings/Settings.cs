@@ -35,12 +35,6 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
     static class BlueprintsCache_Postfix
     {
         static bool Initialized;
-        public class BlueprintSettingsPatchInfo
-        {
-            public string key;
-            public string description;
-            public string name;
-        };
 
         [HarmonyPatch(nameof(BlueprintsCache.Init)), HarmonyPostfix]
         static void Postfix()
@@ -86,7 +80,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
 
                 CreateSubHeader("misccheatssubheader");
                 CreateButton("showmapbutton", () => Cheats.RunCheat(() => DungeonController.ShowMapCheat()));
-
+/*
                 foreach(var v in dungeonBoons)
                 {
                     boons.Add(Helpers.CreateString(GetKey(v.Guid.ToString()), BlueprintTool.Get<BlueprintDungeonBoon>(v.deserializedGuid.ToString()).Name));
@@ -99,18 +93,19 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
                 {
                     CreatePatchToggle(patch.key,patch.name,patch.description,true);
                 }
+*/
                 ModMenu.ModMenu.AddSettings(sb);
             }
             private static void CreateSubHeader(string key)
             {
-                sb.AddSubHeader(Helpers.CreateString(GetKey(key), AssetLoader.GetLocalizationElement("value", key)));
+                sb.AddSubHeader(Helpers.CreateString(GetKey(key), Helpers.GetLocalizationElement("value", key)));
             }
             private static void CreateToggle(string key, bool defaultBool = false)
             {
-                sb.AddToggle(Toggle.New(GetKey(key), defaultValue: defaultBool, Helpers.CreateString(GetKey(key+"-desc"), AssetLoader.GetLocalizationElement("description", key)))
+                sb.AddToggle(Toggle.New(GetKey(key), defaultValue: defaultBool, Helpers.CreateString(GetKey(key+"-desc"), Helpers.GetLocalizationElement("description", key)))
                     .ShowVisualConnection()
                     .OnValueChanged(OnToggle)
-                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-long-desc"), AssetLoader.GetLocalizationElement("longDescription", key))));
+                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-long-desc"), Helpers.GetLocalizationElement("longDescription", key))));
             }
             private static void CreatePatchToggle(string key, string name, string longDescription, bool defaultBool = false)
             {
@@ -122,17 +117,17 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
 
             private static void CreateButton(string key, Action action)
             {
-                sb.AddButton(Button.New(Helpers.CreateString(GetKey(key + "-desc"), AssetLoader.GetLocalizationElement("description", key)), Helpers.CreateString(GetKey(key + "-name"), AssetLoader.GetLocalizationElement("name", key)), action)
-                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-longDesc"), AssetLoader.GetLocalizationElement("longDescription", key))));
+                sb.AddButton(Button.New(Helpers.CreateString(GetKey(key + "-desc"), Helpers.GetLocalizationElement("description", key)), Helpers.CreateString(GetKey(key + "-name"), Helpers.GetLocalizationElement("name", key)), action)
+                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-longDesc"), Helpers.GetLocalizationElement("longDescription", key))));
             }
             private static void CreateDropdownButton(string key, Action<int> action,List<LocalizedString> list)
             {
-                sb.AddDropdownButton(DropdownButton.New(GetKey(key),0,Helpers.CreateString(GetKey(key + "-desc"), AssetLoader.GetLocalizationElement("description", key)), Helpers.CreateString(GetKey(key + "-buttontext"), AssetLoader.GetLocalizationElement("buttonText", key)),action,list)
-                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-longDesc"), AssetLoader.GetLocalizationElement("longDescription", key))));
+                sb.AddDropdownButton(DropdownButton.New(GetKey(key),0,Helpers.CreateString(GetKey(key + "-desc"), Helpers.GetLocalizationElement("description", key)), Helpers.CreateString(GetKey(key + "-buttontext"), Helpers.GetLocalizationElement("buttonText", key)),action,list)
+                    .WithLongDescription(Helpers.CreateString(GetKey(key + "-longDesc"), Helpers.GetLocalizationElement("longDescription", key))));
             }
             private static void CreateKeyBinding(string key, Action action, KeyboardAccess.GameModesGroup gamesModeGroup = KeyboardAccess.GameModesGroup.All, UnityEngine.KeyCode firstKey = UnityEngine.KeyCode.None, bool withctrl = false)
             {
-                sb.AddKeyBinding(KeyBinding.New(GetKey(key), gamesModeGroup, Helpers.CreateString(GetKey(key + "-longDesc"), AssetLoader.GetLocalizationElement("longDescription", key))).SetPrimaryBinding(firstKey, withctrl), action);
+                sb.AddKeyBinding(KeyBinding.New(GetKey(key), gamesModeGroup, Helpers.CreateString(GetKey(key + "-longDesc"), Helpers.GetLocalizationElement("longDescription", key))).SetPrimaryBinding(firstKey, withctrl), action);
             }
             private static void SetBoonIndexAndApplyBoon(int i)
             {

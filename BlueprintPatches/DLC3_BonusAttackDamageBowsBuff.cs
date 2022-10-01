@@ -49,7 +49,7 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
             dungeonBoon_BonusDmgBows.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = preciseShot; });
             dungeonBoon_BonusDmgBows.AddComponent<BoonLogicFeature>(c => { c.Step = 0; c.Start = 0; c.m_Feature = rapidShotFeature; });
 
-            var newDescription = AssetLoader.GetLocalizationElement("description", "dungeonBoon_BonusDmgBows");
+            var newDescription = Helpers.GetLocalizationElement("description", "dungeonBoon_BonusDmgBows");
 
             dLC3_BonusAttackDamageBowsBuff.m_Description = Helpers.CreateString(dLC3_BonusAttackDamageBowsBuff + ".Description", newDescription);
             dungeonBoon_BonusDmgBows.m_Description = Helpers.CreateString(dungeonBoon_BonusDmgBows + ".Description", newDescription);

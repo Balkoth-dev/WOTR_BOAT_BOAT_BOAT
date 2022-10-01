@@ -47,6 +47,9 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 ```
 ## Change Log
 ```
+1.0.9
+Readded the Add Tailwind cheat,
+Removed XML from localization and replaced with JSON to help some users' systems that didn't have the ability to parse the XML correctly.
 1.0.7
 Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
 Disabled Tailwind of the Hardy Changes to be reviewed at a later date.

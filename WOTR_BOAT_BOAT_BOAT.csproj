@@ -158,19 +158,21 @@
     <Compile Include="Utilities\Utilities.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BlueprintCore\resources\encyclopedia.json" ><LogicalName>BlueprintCore.resources.encyclopedia.json</LogicalName></EmbeddedResource>
-    <None Include="Output\LocalizedStrings.json" />
+    <EmbeddedResource Include="BlueprintCore\resources\encyclopedia.json">
+      <LogicalName>BlueprintCore.resources.encyclopedia.json</LogicalName>
+    </EmbeddedResource>
     <None Include="Output\Info.json" />
+    <None Include="Output\PatchesStrings.json" />
+    <None Include="Output\SettingsStrings.json" />
     <None Include="packages.config" />
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Output\Assets\" />
     <Folder Include="Strings\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="BoatBoatBoatMenu.png" />
-    <Content Include="XML\Strings.xml" />
+    <Content Include="Output\Assets\Settings\boatboatboat.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="Publicise" AfterTargets="Clean">

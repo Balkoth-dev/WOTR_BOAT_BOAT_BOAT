@@ -22,7 +22,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
         public static List<BlueprintDungeonBoon> editedBoons = new List<BlueprintDungeonBoon>();
         public static T GetSetting<T>(string key)
         {
-                return ModMenu.ModMenu.GetSettingValue<T>(GetKey(key));
+            return ModMenu.ModMenu.GetSettingValue<T>(GetKey(key));
         }
         private static string GetKey(string partialKey)
         {

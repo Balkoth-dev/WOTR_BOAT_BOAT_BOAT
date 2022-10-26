@@ -14,14 +14,12 @@ https://github.com/WittleWolfie/ModMenu
 ```
 ## Changes
 ```
-* Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
-* Disabled Tailwind of the Hardy Changes to be reviewed at a later date.
+* Added "Dead Is Dead" setting. When a party member dies, your save is copied to a backup file called "BBB_Backup.bak" and then deleted.
 * Added ModMenu support.
 * Added new cheats such as teleporting you to the port, island, or boat; finishing the island you are on; showing the map anywhere you are; etc.
 * New hotkey support thanks to ModMenu.
 * New cheat to add a tailwind to your party.
 * No Shame Mode: Toggling this option on will set your attempts to always be zero.
-* Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
 * Ctrl+S will cause the game to save and exit to the main menu.
 * Experimental: Cheat menu added to select your boon.
 * Impervious Tailwind - All rogues, rangers, alchemists with the vivisectionist archetype, magi with the armored battlemage archetype, and slayers with the arcane enforcer archetype gain DR N/- equal to their level in this class.
@@ -47,17 +45,18 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 ```
 ## Change Log
 ```
+1.1.0
+Tailwind of the Arrows patch should now trigger.
 1.0.9
 Readded the Add Tailwind cheat,
 Removed XML from localization and replaced with JSON to help some users' systems that didn't have the ability to parse the XML correctly.
 1.0.7
-Added "Dead Is Dead" mod. Togglings this option will backup your save with a different change.
+Added "Dead Is Dead" setting. When a party member dies, your save is copied to a backup file called \"BBB_Backup.bak\" and then deleted.
 Disabled Tailwind of the Hardy Changes to be reviewed at a later date.
 Added ModMenu support.
 Added new cheats such as teleporting you to the port, island, or boat; finishing the island you are on; showing the map anywhere you are; etc.
 New hotkey support thanks to ModMenu.
 New cheat to add a tailwind to your party.
-
 1.0.6
 Added "No Shame" mode. Toggling this option on will set your attempts to always be zero.
 ```

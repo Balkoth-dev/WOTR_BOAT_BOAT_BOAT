@@ -51,7 +51,7 @@ Tailwind of the Arrows patch should now trigger.
 Readded the Add Tailwind cheat,
 Removed XML from localization and replaced with JSON to help some users' systems that didn't have the ability to parse the XML correctly.
 1.0.7
-Added "Dead Is Dead" setting. When a party member dies, your save is copied to a backup file called \"BBB_Backup.bak\" and then deleted.
+Added "Dead Is Dead" setting. When a party member dies, your save is copied to a backup file called "BBB_Backup.bak" and then deleted.
 Disabled Tailwind of the Hardy Changes to be reviewed at a later date.
 Added ModMenu support.
 Added new cheats such as teleporting you to the port, island, or boat; finishing the island you are on; showing the map anywhere you are; etc.

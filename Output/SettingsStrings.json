@@ -28,6 +28,10 @@
     "enGB": "Hotkeys"
   },
   {
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummiessubheader-value",
+    "enGB": "Training Dummies"
+  },
+  {
     "Key": "WOTR-BOAT-BOAT-BOAT.noshametoggle-description",
     "enGB": "No Shame"
   },
@@ -218,5 +222,45 @@
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.addBoon-longDescription",
     "enGB": "Experimental: Adds a new boon to your character. (Currently adds a boon on top of your current one, use at your own risk.)"
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.restall-description",
+    "enGB": "Take a nap."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.restall-longDescription",
+    "enGB": "Causes your party to rest, regaining all health and abilities back."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.killyou-description",
+    "enGB": "Kill You."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.killyou-longDescription",
+    "enGB": "Kills whatever is under your mouse cursor."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.killall-description",
+    "enGB": "Kill Everything."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.killall-longDescription",
+    "enGB": "Kills everything around you."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummies-description",
+    "enGB": "Summon Training Dummy."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummies-longDescription",
+    "enGB": "Summons your selected training dummy. Perfect for testing out different things!."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummiesdropdown-description",
+    "enGB": "Select Training Dummy."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummiesdropdown-longDescription",
+    "enGB": "Selects your training dummy for summoning."
   }
 ]

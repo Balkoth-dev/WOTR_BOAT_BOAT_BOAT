@@ -45,6 +45,11 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 ```
 ## Change Log
 ```
+1.1.1
+Added Resting hotkey to cheats.
+Added Kill You hotkey to cheats.
+Added Kill All hotkey to cheats.
+Crashing Tailwind now works with slingstaffs.
 1.1.0
 Tailwind of the Arrows patch should now trigger.
 1.0.9

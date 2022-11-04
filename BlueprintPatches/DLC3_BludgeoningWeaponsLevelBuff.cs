@@ -56,6 +56,15 @@ namespace WOTR_BOAT_BOAT_BOAT.BlueprintPatches
                 var dLC3_BludgeoningWeaponsLevelBuff = BlueprintTool.Get<BlueprintBuff>("ebbeb216ee414e86bdb7238e07ad88f7");
                 var dLC3_SlashingBludgeoningLevelRankGetter = BlueprintTool.Get<BlueprintUnitProperty>("54a35f59c7a74a39b4ad214359269fb7");
 
+                var flailDamage = dLC3_BludgeoningWeaponsLevelBuff.GetComponent<AddInitiatorAttackWithWeaponTrigger>();
+
+                var slingStaffDamage = Helpers.CreateCopy(flailDamage);
+                slingStaffDamage.Group = WeaponFighterGroup.Thrown;
+                slingStaffDamage.Category = WeaponCategory.SlingStaff;
+                slingStaffDamage.CheckWeaponCategory = true;
+
+                dLC3_BludgeoningWeaponsLevelBuff.AddComponent<AddInitiatorAttackWithWeaponTrigger>(c => { c = slingStaffDamage; });
+
                 var newDescription = Helpers.GetLocalizationElement("Description", "DungeonBoon_Bludgeoning", ".");
 
                 dLC3_SlashingBludgeoningLevelRankGetter.EditComponent<ComplexPropertyGetter>(c => { c.Denominator = 2; });

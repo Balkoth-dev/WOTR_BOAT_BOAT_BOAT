@@ -1,4 +1,7 @@
-﻿using Kingmaker;
+﻿using BlueprintCore.Utils;
+using Kingmaker;
+using Kingmaker.Blueprints;
+using Kingmaker.Cheats;
 using Kingmaker.Controllers.Units;
 using Kingmaker.Dungeon;
 using Kingmaker.Dungeon.Blueprints;
@@ -13,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace WOTR_BOAT_BOAT_BOAT.Other
 {
-    public static class Cheats
+    public static class BBB_Cheats
     {
         public static async void RunCheat(Action action)
         {
@@ -72,6 +75,12 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
         {
             Game.Instance.SaveGame(Game.Instance.SaveManager.GetNextAutoslot(), null);
             Game.Instance.ResetToMainMenu();
+        }
+        public static void SummonTrainingDummy()
+        {
+            var trainingDummyBlueprint = BlueprintTool.Get<BlueprintUnit>(Settings.Settings.GetSetting<string>("trainingdummiesdropdown"));
+            
+            CheatsCombat.SpawnEnemyUnderCursor(trainingDummyBlueprint.name);
         }
     }
 }

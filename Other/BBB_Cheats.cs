@@ -90,7 +90,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
 
             if (!(unit == null))
             {
-                    var offset = 5f * UnityEngine.Random.insideUnitSphere;
+                    var offset = 1f * UnityEngine.Random.insideUnitSphere;
                     Vector3 spawnPosition = new(
                         worldPosition.x + offset.x,
                         worldPosition.y,

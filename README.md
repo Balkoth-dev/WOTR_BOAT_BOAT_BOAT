@@ -42,13 +42,18 @@ In addition, all Elven Curved Blades have their critical hit range increased by 
 * Slashing Tailwind - All party members gain a +1 bonus for every 2 character levels (minimum +1) to damage rolls with slashing weapons.
 * Tailwind of Fists - Unarmed strikes made by your party members gain a +1 bonus on attack rolls and deal one additional die of the same type as the primary one (1d6 becomes 2d6, 2d6 becomes 3d6).
 In addition all unarmed attacks deal damage using the damage die of the next highest category (For example d10 becomes a 2d8).
+* Added Resting hotkey to cheats.
+* Added target under cursor hotkey to cheats.
+* Added Kill All hotkey to cheats.
+* Added cheat to spawn any enemy you want.
 ```
 ## Change Log
 ```
 1.1.1
 Added Resting hotkey to cheats.
-Added Kill You hotkey to cheats.
+Added target under cursor hotkey to cheats.
 Added Kill All hotkey to cheats.
+Added cheat to spawn any enemy you want.
 Crashing Tailwind now works with slingstaffs.
 1.1.0
 Tailwind of the Arrows patch should now trigger.

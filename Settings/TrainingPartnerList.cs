@@ -32,7 +32,21 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
                 "981b08bddac11ca41b3698d3f6059629",
                 "04867a7006ab04140a4dd45d79d2ce1b",
                 "60a35995607d493c85a8118dd9da993b",
-                "d054e06bcb0242b0b3925d888a192cdd"
+                "d054e06bcb0242b0b3925d888a192cdd",
+                "6c786c202513e8a458ad0e3b8324291c",
+                "947c90850e25a094fbdebdcb80ae6434",
+                "afb75a3f377db55458f6298c0bc30704",
+                "3a4a9124784a49d299fbc770b41b127a",
+                "95a3fd789c077c741955f8aad271686e",
+                "515c094f4e757794fa12ce0d6d7ee3d4",
+                "600c0aadc5e44075b3b1e1a623de392c",
+                "9cbdad39cf0e7614da9453c7bed90210",
+                "c35017033bd4491fb3fa880d49211c0b",
+                "09a02fa57e1844a4b6df546954bd1a75",
+                "c33d66055f934b66b60e3a4d61757baa",
+                "a1b06220efb4f0545a870ce52fadd678",
+                "0938fe1091ef439db8a28179d643250a",
+                "f77027145d3b474c8317189b626c2345"
             };
 
         public static List<LocalizedString> localizedStrings()

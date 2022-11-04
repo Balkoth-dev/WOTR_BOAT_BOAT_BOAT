@@ -136,11 +136,11 @@ namespace WOTR_BOAT_BOAT_BOAT.Utilities
                     $"Failed to fetch blueprint: {nameOrGuid} - {assetId}.\nIs the type correct? {typeof(T)}");
             }
         }
-        public static LocalizedString GetLocalizationElement(string name, string key, string seperator = "-", string prefix = "WOTR-BOAT-BOAT-BOAT.")
+        public static LocalizedString GetLocalizationElement(string name, string key, string seperator = "-")
         {
             try
             {
-                return LocalizationTool.GetString(prefix + key + seperator + name);
+                return LocalizationTool.GetString("WOTR-BOAT-BOAT-BOAT." + key + seperator + name);
             }
             catch(Exception ex)
             {

@@ -28,7 +28,7 @@
     "enGB": "Hotkeys"
   },
   {
-    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummiessubheader-value",
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingpartnerssubheader-value",
     "enGB": "Training Dummies"
   },
   {
@@ -233,7 +233,7 @@
   },
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.killyou-description",
-    "enGB": "Kill You."
+    "enGB": "Power Fantasy"
   },
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.killyou-longDescription",
@@ -241,26 +241,26 @@
   },
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.killall-description",
-    "enGB": "Kill Everything."
+    "enGB": "Kill Everything"
   },
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.killall-longDescription",
     "enGB": "Kills everything around you."
   },
   {
-    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummies-description",
-    "enGB": "Summon Training Dummy."
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingpartners-description",
+    "enGB": "Summon Training Partner"
   },
   {
-    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummies-longDescription",
-    "enGB": "Summons your selected training dummy. Perfect for testing out different things!."
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingpartners-longDescription",
+    "enGB": "Summons your selected training partner. Perfect for testing out different things!."
   },
   {
-    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummiesdropdown-description",
-    "enGB": "Select Training Dummy."
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingpartnersdropdown-description",
+    "enGB": "Select Training Partner"
   },
   {
-    "Key": "WOTR-BOAT-BOAT-BOAT.trainingdummiesdropdown-longDescription",
-    "enGB": "Selects your training dummy for summoning."
+    "Key": "WOTR-BOAT-BOAT-BOAT.trainingpartnersdropdown-longDescription",
+    "enGB": "Selects your training partner for summoning."
   }
 ]

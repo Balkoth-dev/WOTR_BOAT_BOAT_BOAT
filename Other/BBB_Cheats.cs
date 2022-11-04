@@ -5,6 +5,7 @@ using Kingmaker.Cheats;
 using Kingmaker.Controllers.Units;
 using Kingmaker.Dungeon;
 using Kingmaker.Dungeon.Blueprints;
+using Kingmaker.EntitySystem.Entities;
 using Kingmaker.EntitySystem.Persistence;
 using Kingmaker.GameModes;
 using Kingmaker.UnitLogic;
@@ -13,6 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
+using WOTR_BOAT_BOAT_BOAT.Settings;
 
 namespace WOTR_BOAT_BOAT_BOAT.Other
 {
@@ -76,11 +79,29 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
             Game.Instance.SaveGame(Game.Instance.SaveManager.GetNextAutoslot(), null);
             Game.Instance.ResetToMainMenu();
         }
-        public static void SummonTrainingDummy()
+        public static int numberOfRan = 0;
+        public static void SummonTrainingPartner()
         {
-            var trainingDummyBlueprint = BlueprintTool.Get<BlueprintUnit>(Settings.Settings.GetSetting<string>("trainingdummiesdropdown"));
-            
-            CheatsCombat.SpawnEnemyUnderCursor(trainingDummyBlueprint.name);
+            numberOfRan++;
+            Main.Log("Triggered "+ numberOfRan+" times.");
+            var enemyGuid = TrainingPartnerList.trainingpartnersLocalizedStringList[Settings.Settings.GetSetting<int>("trainingpartnersdropdown")];
+            var unit = BlueprintTool.Get<BlueprintUnit>(enemyGuid);
+            var worldPosition = Game.Instance.ClickEventsController.WorldPosition;
+
+            if (!(unit == null))
+            {
+                    var offset = 5f * UnityEngine.Random.insideUnitSphere;
+                    Vector3 spawnPosition = new(
+                        worldPosition.x + offset.x,
+                        worldPosition.y,
+                        worldPosition.z + offset.z);
+                    UnitEntityData unitEntityData = Game.Instance.EntityCreator.SpawnUnit(unit, spawnPosition, Quaternion.identity, Game.Instance.State.LoadedAreaState.MainState);
+                    string paramString = Kingmaker.Cheats.Utilities.GetParamString("", 2, (string)null);
+                    if (string.IsNullOrEmpty(paramString))
+                        return;
+                    BlueprintFaction blueprint = Kingmaker.Cheats.Utilities.GetBlueprint<BlueprintFaction>(paramString);
+                    unitEntityData.SwitchFactions(blueprint, true);
+            }
         }
     }
 }

@@ -45,7 +45,7 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 * Added Resting hotkey to cheats.
 * Added target under cursor hotkey to cheats.
 * Added Kill All hotkey to cheats.
-* Added cheat to spawn any enemy you want.
+* Added cheat to spawn an enemy you want.
 ```
 ## Change Log
 ```
@@ -53,7 +53,7 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 Added Resting hotkey to cheats.
 Added target under cursor hotkey to cheats.
 Added Kill All hotkey to cheats.
-Added cheat to spawn any enemy you want.
+Added cheat to spawn an enemy you want.
 Crashing Tailwind now works with slingstaffs.
 1.1.0
 Tailwind of the Arrows patch should now trigger.

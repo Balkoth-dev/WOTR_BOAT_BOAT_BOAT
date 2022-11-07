@@ -96,10 +96,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
                         worldPosition.y,
                         worldPosition.z + offset.z);
                     UnitEntityData unitEntityData = Game.Instance.EntityCreator.SpawnUnit(unit, spawnPosition, Quaternion.identity, Game.Instance.State.LoadedAreaState.MainState);
-                    string paramString = Kingmaker.Cheats.Utilities.GetParamString("", 2, (string)null);
-                    if (string.IsNullOrEmpty(paramString))
-                        return;
-                    BlueprintFaction blueprint = Kingmaker.Cheats.Utilities.GetBlueprint<BlueprintFaction>(paramString);
+                    BlueprintFaction blueprint = BlueprintTool.Get<BlueprintFaction>("f53d9de2a5cd4144596a0ef9e26ffa9c");
                     unitEntityData.SwitchFactions(blueprint, true);
             }
         }

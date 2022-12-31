@@ -1,5 +1,7 @@
 # BOAT BOAT BOAT
 
+## [![Download zip](https://github.com/Balkoth-dev/WOTR_BOAT_BOAT_BOAT/blob/master/downloadButtonBBB.png?raw=true "Download zip")](https://github.com/Balkoth-dev/WOTR_BOAT_BOAT_BOAT/releases/latest/download/WOTR_BOAT_BOAT_BOAT.zip)
+
 Requires ModMenu:
 https://github.com/WittleWolfie/ModMenu
 ![alt text](https://github.com/Balkoth-dev/WOTR_BOAT_BOAT_BOAT/blob/master/BoatBoatBoatMenu.png?raw=true)

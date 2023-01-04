@@ -51,6 +51,9 @@ In addition all unarmed attacks deal damage using the damage die of the next hig
 ```
 ## Change Log
 ```
+1.1.2
+Added demon lords to the training partner selection.
+Added an option to summon any training partner as an ally.
 1.1.1
 Added Resting hotkey to cheats.
 Added target under cursor hotkey to cheats.

@@ -172,6 +172,7 @@
     <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="lib\" />
     <Folder Include="Strings\" />
   </ItemGroup>
   <ItemGroup>

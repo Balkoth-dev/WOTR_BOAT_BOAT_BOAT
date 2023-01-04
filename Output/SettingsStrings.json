@@ -262,5 +262,21 @@
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.trainingpartnersdropdown-longDescription",
     "enGB": "Selects your training partner for summoning."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.monsterally-description",
+    "enGB": "Summon Allied Monster"
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.monsterally-longDescription",
+    "enGB": "Summons an allied monster to help you in battle."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.monsterallydropdown-description",
+    "enGB": "Select Allied Monster Summon"
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.monsterallydropdown-longDescription",
+    "enGB": "Selects your allied monster for summoning."
   }
 ]

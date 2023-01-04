@@ -100,5 +100,25 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
                     unitEntityData.SwitchFactions(blueprint, true);
             }
         }
+        public static void SummonMonsterAlly()
+        {
+            numberOfRan++;
+            Main.Log("Triggered " + numberOfRan + " times.");
+            var enemyGuid = TrainingPartnerList.trainingpartnersLocalizedStringList[Settings.Settings.GetSetting<int>("monsterallydropdown")];
+            var unit = BlueprintTool.Get<BlueprintUnit>(enemyGuid);
+            var worldPosition = Game.Instance.ClickEventsController.WorldPosition;
+
+            if (!(unit == null))
+            {
+                var offset = 1f * UnityEngine.Random.insideUnitSphere;
+                Vector3 spawnPosition = new(
+                    worldPosition.x + offset.x,
+                    worldPosition.y,
+                    worldPosition.z + offset.z);
+                UnitEntityData unitEntityData = Game.Instance.EntityCreator.SpawnUnit(unit, spawnPosition, Quaternion.identity, Game.Instance.State.LoadedAreaState.MainState);
+                BlueprintFaction blueprint = BlueprintTool.Get<BlueprintFaction>("72f240260881111468db610b6c37c099");
+                unitEntityData.SwitchFactions(blueprint, true);
+            }
+        }
     }
 }

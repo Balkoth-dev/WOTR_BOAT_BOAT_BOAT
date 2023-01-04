@@ -101,6 +101,8 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
                 CreateSubHeader("trainingpartnerssubheader");
                 CreateDropdown("trainingpartnersdropdown", TrainingPartnerList.localizedStrings(), 6);
                 CreateKeyBinding("trainingpartners", () => BBB_Cheats.RunCheat(BBB_Cheats.SummonTrainingPartner));
+                CreateDropdown("monsterallydropdown", TrainingPartnerList.localizedStrings(), 6);
+                CreateKeyBinding("monsterally", () => BBB_Cheats.RunCheat(BBB_Cheats.SummonMonsterAlly));
 
                 CreateSubHeader("teleportcheatssubheader");
                 CreateButton("teleportbacktoship", () => BBB_Cheats.RunCheat(BBB_Cheats.TeleportBackToBoatCheat));

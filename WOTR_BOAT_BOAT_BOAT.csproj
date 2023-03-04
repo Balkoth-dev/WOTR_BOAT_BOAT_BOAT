@@ -188,7 +188,7 @@
     <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>if "$(ConfigurationName)"=="Debug" (
+    <PostBuildEvent>if defined DEBUG (
     (robocopy "$(TargetDir) " "%25WrathPath%25\Mods\$(AssemblyName)\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0
 ) else (
     $(ProjectDir)version.bat &amp;&amp; (robocopy "$(TargetDir) " "%25WrathPath%25\Mods\$(AssemblyName)\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0

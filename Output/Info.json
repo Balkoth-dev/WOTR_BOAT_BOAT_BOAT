@@ -1,13 +1,15 @@
 {
-  "AssemblyName": "WOTR_BOAT_BOAT_BOAT.dll",
-  "Author": "Balkoth",
-  "DisplayName": "BOAT BOAT BOAT",
-  "EntryMethod": "WOTR_BOAT_BOAT_BOAT.Main.Load",
-  "GameVersion": "1.4.0",
-  "HomePage": "https://github.com/Balkoth-dev/WOTR_BOAT_BOAT_BOAT",
-  "Id": "WOTR_BOAT_BOAT_BOAT",
-  "ManagerVersion": "0.23.0",
-  "Repository": "",
-  "Requirements": [ "ModMenu-1.3.0" ],
-  "Version": "1.1.3"
+    "AssemblyName":  "WOTR_BOAT_BOAT_BOAT.dll",
+    "Author":  "Balkoth",
+    "DisplayName":  "BOAT BOAT BOAT",
+    "EntryMethod":  "WOTR_BOAT_BOAT_BOAT.Main.Load",
+    "GameVersion":  "1.4.0",
+    "HomePage":  "https://github.com/Balkoth-dev/WOTR_BOAT_BOAT_BOAT",
+    "Id":  "WOTR_BOAT_BOAT_BOAT",
+    "ManagerVersion":  "0.23.0",
+    "Repository":  "",
+    "Requirements":  [
+                         "ModMenu-1.3.0"
+                     ],
+    "Version":  "1.1.3"
 }

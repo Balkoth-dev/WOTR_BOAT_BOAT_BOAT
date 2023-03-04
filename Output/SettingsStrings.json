@@ -278,5 +278,13 @@
   {
     "Key": "WOTR-BOAT-BOAT-BOAT.monsterallydropdown-longDescription",
     "enGB": "Selects your allied monster for summoning."
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.useHealingSpells-description",
+    "enGB": "Auto-Cast Healing"
+  },
+  {
+    "Key": "WOTR-BOAT-BOAT-BOAT.useHealingSpells-longDescription",
+    "enGB": "Will automatically cast healing spells that you have. Same way as if you toggled the option while camping."
   }
 ]

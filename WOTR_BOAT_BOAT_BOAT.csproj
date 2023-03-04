@@ -170,6 +170,7 @@
     <None Include="Output\SettingsStrings.json" />
     <None Include="packages.config" />
     <None Include="README.md" />
+    <None Include="version.bat" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />
@@ -187,7 +188,16 @@
     <Publicise InputAssemblies="@(PubliciseInputAssemblies)" OutputPath="$(SolutionDir)lib/" PubliciseCompilerGenerated="true" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>(robocopy "$(TargetDir) " "%25WrathPath%25\Mods\WOTR_BOAT_BOAT_BOAT\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0</PostBuildEvent>
+    <PostBuildEvent>if "$(ConfigurationName)"=="Debug" (
+    (robocopy "$(TargetDir) " "%25WrathPath%25\Mods\$(AssemblyName)\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0
+) else (
+    $(ProjectDir)version.bat &amp;&amp; (robocopy "$(TargetDir) " "%25WrathPath%25\Mods\$(AssemblyName)\ " /s /e )^&amp; IF %25ERRORLEVEL%25 LEQ 1 exit 0
+)
+</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -195,4 +205,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Aze.Publicise.MSBuild.Task.1.0.0\build\Aze.Publicise.MSBuild.Task.props'))" />
   </Target>
+  <ProjectExtensions />
 </Project>

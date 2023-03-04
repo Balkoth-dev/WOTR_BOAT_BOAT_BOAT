@@ -120,5 +120,12 @@ namespace WOTR_BOAT_BOAT_BOAT.Other
                 unitEntityData.SwitchFactions(blueprint, true);
             }
         }
+        public static void AutoCastHealing()
+        {
+            bool useSpells = Game.Instance.Player.Camping.UseSpells;
+            Game.Instance.Player.Camping.UseSpells = true;
+            Game.Instance.RestController.UseRestSpells();
+            Game.Instance.Player.Camping.UseSpells = useSpells;
+        }
     }
 }

@@ -89,6 +89,7 @@ namespace WOTR_BOAT_BOAT_BOAT.Settings
 
                 CreateSubHeader("hotkeysubheader");
                 CreateKeyBinding("saveandexitkeybinding", () => BBB_Cheats.RunCheat(BBB_Cheats.SaveAndExit));
+                CreateKeyBinding("useHealingSpells", () => BBB_Cheats.RunCheat(BBB_Cheats.AutoCastHealing));
                 CreateKeyBinding("showmapkeybinding", () => BBB_Cheats.RunCheat(() => DungeonController.ShowMapCheat()));
                 CreateKeyBinding("teleportbacktoshipkeybinding", () => BBB_Cheats.RunCheat(BBB_Cheats.TeleportBackToBoatCheat));
                 CreateKeyBinding("teleportbacktoislandkeybinding", () => BBB_Cheats.RunCheat(BBB_Cheats.TeleportBackToIslandCheat));
